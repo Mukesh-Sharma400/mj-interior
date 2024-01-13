@@ -1,38 +1,68 @@
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import logo from "../../../public/assets/logo.png";
 
 export const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <DisplayWrapper>
-      <Logo src={logo} alt="MJ Interior" />
-      <RoutesWrapper>
-        <Route href="/">Services</Route>
-        <Route href="/">Projects</Route>
-        <Route href="/">About Us</Route>
-        <ContactBtn>Let's Talk</ContactBtn>
+    <DisplayWrapper scrolled={scrolled}>
+      <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
+      <RoutesWrapper scrolled={scrolled}>
+        <Route href="/" scrolled={scrolled}>
+          Services
+        </Route>
+        <Route href="/" scrolled={scrolled}>
+          Projects
+        </Route>
+        <Route href="/" scrolled={scrolled}>
+          About Us
+        </Route>
+        <ContactBtn scrolled={scrolled}>Let's Talk</ContactBtn>
       </RoutesWrapper>
     </DisplayWrapper>
   );
 };
 
 const DisplayWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  margin: 20px 50px;
+  padding: 0px 50px;
+  height: ${(props) => (props.scrolled ? "70px" : "90px")};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  background: ${(props) =>
+    props.scrolled ? "rgba(225, 225, 225, 0.3)" : "transparent"};
+  box-shadow: ${(props) =>
+    props.scrolled ? "0 4px 15px rgba(225, 225, 225, 0.3)" : "none"};
+  backdrop-filter: ${(props) => (props.scrolled ? "blur(10.1px)" : "none")};
+  -webkit-backdrop-filter: ${(props) =>
+    props.scrolled ? "blur(10.1px)" : "none"};
+  border-bottom: ${(props) =>
+    props.scrolled ? "1px solid rgba(225, 225, 225, 1)" : "none"};
+  z-index: 2;
   transition: all 0.5s ease-in-out;
 `;
 
 const Logo = styled(Image)`
   width: auto;
-  height: 70px;
+  height: ${(props) => (props.scrolled ? "50px" : "70px")};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -45,7 +75,7 @@ const RoutesWrapper = styled.div`
 
 const Route = styled(Link)`
   font-size: 16px;
-  color: white;
+  color: ${(props) => (props.scrolled ? "black" : "white")};
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 `;
@@ -53,8 +83,8 @@ const Route = styled(Link)`
 const ContactBtn = styled.button`
   font-size: 20px;
   font-weight: 600;
-  color: black;
-  background-color: white;
+  color: ${(props) => (props.scrolled ? "white" : "black")};
+  background-color: ${(props) => (props.scrolled ? "black" : "white")};
   border-radius: 40px;
   height: 40px;
   padding: 0 15px;

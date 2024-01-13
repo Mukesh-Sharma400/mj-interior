@@ -2,8 +2,10 @@
 
 import styled from "styled-components";
 import { Hero } from "../sections/Hero";
+import { AboutUs } from "../sections/AboutUs";
 import { Header } from "../components/Header";
 import { Counting } from "../sections/Counting";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <Header />
       <Hero />
       <Counting />
+      <AboutUs />
+      {/* <Footer /> */}
     </DisplayWrapper>
   );
 }

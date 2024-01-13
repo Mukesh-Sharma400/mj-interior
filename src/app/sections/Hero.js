@@ -56,7 +56,7 @@ const Overlay = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  width: 870px;
+  max-width: 870px;
   position: absolute;
   top: 50%;
   left: 10%;
