@@ -10,14 +10,17 @@ export const AboutUs = () => {
       </LeftSide>
       <RightSide>
         <AboutUsHeading>About Us</AboutUsHeading>
-        <Heading>The combination of modern & simplicity</Heading>
+        <Heading>The Combination of Modern & Simplicity</Heading>
         <Description>
           MJ Interior is a crew of creative interior designers who have the
           ability to see the world through an aesthetic filter and transitioning
           the domain into the versions of their perspective, filled with
           captivating sights.
         </Description>
-        <Button>Contact Now</Button>
+        <Button>
+          <span class="transition"></span>
+          <span class="label">Contact Now</span>
+        </Button>
       </RightSide>
     </DisplayWrapper>
   );
@@ -33,7 +36,7 @@ const DisplayWrapper = styled.div`
 
 const LeftSide = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,14 +45,14 @@ const LeftSide = styled.div`
 
 const AboutUsImage = styled(Image)`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   transition: all 0.5s ease-in-out;
 `;
 
 const RightSide = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,12 +79,37 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
+  width: 200px;
+  height: 60px;
   font-size: 20px;
   font-weight: 600;
   color: white;
-  background-color: black;
+  background-color: #ab81e8;
   border-radius: 10px;
-  width: 100%;
-  height: 40px;
+  position: relative;
+  overflow: hidden;
   transition: all 0.5s ease-in-out;
+
+  .transition {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 500ms;
+    background-color: #23c3c4;
+    border-radius: 9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label {
+    position: relative;
+    top: -1px;
+  }
+
+  &:hover .transition {
+    width: 14em;
+    height: 14em;
+  }
 `;
