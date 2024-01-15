@@ -16,7 +16,10 @@ export const Hero = () => {
           to MJ Interior, where we bring dreams to life with sophisticated style
           and meticulous design.
         </Description>
-        <Button>See Projects</Button>
+        <Button>
+          <span class="transition"></span>
+          <span class="label">See Projects</span>
+        </Button>
       </ContentWrapper>
     </DisplayWrapper>
   );
@@ -83,12 +86,37 @@ const Description = styled.p`
 `;
 
 const Button = styled.button`
+  width: 160px;
+  height: 40px;
   font-size: 20px;
   font-weight: 600;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: #23c3c4;
   border-radius: 40px;
-  height: 40px;
-  padding: 0 15px;
+  position: relative;
+  overflow: hidden;
   transition: all 0.5s ease-in-out;
+
+  .transition {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 500ms;
+    background-color: #ab81e8;
+    border-radius: 9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label {
+    position: relative;
+    top: -1px;
+  }
+
+  &:hover .transition {
+    width: 14em;
+    height: 14em;
+  }
 `;

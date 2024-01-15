@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import styled from "styled-components";
-import interior from "../../../public/assets/interior-design.jpg";
 import person from "../../../public/assets/person.png";
+import interior from "../../../public/assets/interior-design.jpg";
 
 export const Testimonials = () => {
   const settings = {
@@ -151,7 +151,7 @@ const Description = styled.p`
 `;
 
 const MySlider = styled(Slider)`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   transition: all 0.5s ease-in-out;
 `;

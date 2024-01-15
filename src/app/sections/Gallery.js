@@ -73,7 +73,7 @@ const Description = styled.p`
 `;
 
 const GalleryWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   height: 100vh;
   margin: 0 auto;
   display: grid;

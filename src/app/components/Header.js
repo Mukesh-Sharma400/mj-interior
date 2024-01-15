@@ -23,6 +23,9 @@ export const Header = () => {
       <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
       <RoutesWrapper scrolled={scrolled}>
         <Route href="/" scrolled={scrolled}>
+          Home
+        </Route>
+        <Route href="/" scrolled={scrolled}>
           Services
         </Route>
         <Route href="/" scrolled={scrolled}>
@@ -31,7 +34,10 @@ export const Header = () => {
         <Route href="/" scrolled={scrolled}>
           About Us
         </Route>
-        <ContactBtn scrolled={scrolled}>Let's Talk</ContactBtn>
+        <Route href="/" scrolled={scrolled}>
+          Contact
+        </Route>
+        {/* <ContactBtn scrolled={scrolled}>Let's Talk</ContactBtn> */}
       </RoutesWrapper>
     </DisplayWrapper>
   );
@@ -42,7 +48,7 @@ const DisplayWrapper = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  padding: 0px 50px;
+  padding: 0px 5%;
   height: ${(props) => (props.scrolled ? "70px" : "90px")};
   display: flex;
   align-items: center;
@@ -62,7 +68,7 @@ const DisplayWrapper = styled.div`
 
 const Logo = styled(Image)`
   width: auto;
-  height: ${(props) => (props.scrolled ? "50px" : "70px")};
+  height: ${(props) => (props.scrolled ? "40px" : "60px")};
   transition: all 0.5s ease-in-out;
 `;
 
