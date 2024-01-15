@@ -60,7 +60,10 @@ export const Footer = () => {
         </LeftSide>
         <RightSide>
           <p>
-            Designed and Developed by <span>Mukesh Sharma</span>
+            Designed and Developed by{" "}
+            <a href="https://mukesh-sharma.vercel.app" target="_blank">
+              Mukesh Sharma
+            </a>
           </p>
         </RightSide>
       </BottomWrapper>
@@ -109,7 +112,7 @@ const Logo = styled(Image)`
 `;
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: 15px;
   color: lightgrey;
   transition: all 0.5s ease-in-out;
 `;
@@ -147,7 +150,7 @@ const ServicesWrapper = styled.div`
 
 const Service = styled.div`
   width: 50%;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   gap: 5px;
   padding: 10px 0px;
@@ -160,7 +163,7 @@ const BottomWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   transition: all 0.5s ease-in-out;
 `;
 
@@ -171,7 +174,9 @@ const LeftSide = styled.div`
 const RightSide = styled.div`
   transition: all 0.5s ease-in-out;
 
-  span {
+  a {
+    color: white;
+    text-decoration: none;
     transition: all 0.5s ease-in-out;
 
     font-weight: 600;
