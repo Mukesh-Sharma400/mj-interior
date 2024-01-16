@@ -37,7 +37,6 @@ export const Header = () => {
         <Route href="/" scrolled={scrolled}>
           Contact
         </Route>
-        {/* <ContactBtn scrolled={scrolled}>Let's Talk</ContactBtn> */}
       </RoutesWrapper>
     </DisplayWrapper>
   );

@@ -16,7 +16,14 @@ export const Footer = () => {
           </Description>
         </Column1>
         <Column2>
-          <SectionHeading>Column2</SectionHeading>
+          <SectionHeading>Pages</SectionHeading>
+          <PagesWrapper>
+            <Page>Home</Page>
+            <Page>Services</Page>
+            <Page>Projects</Page>
+            <Page>About Us</Page>
+            <Page>Contact</Page>
+          </PagesWrapper>
         </Column2>
         <Column3>
           <SectionHeading>Services</SectionHeading>
@@ -92,7 +99,7 @@ const DisplayWrapper = styled.div`
 const ColumnsWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 50px;
+  gap: 100px;
   transition: all 0.5s ease-in-out;
 `;
 
@@ -125,11 +132,27 @@ const SectionHeading = styled.p`
 `;
 
 const Column2 = styled.div`
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 10px;
+  transition: all 0.5s ease-in-out;
+`;
+
+const PagesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+`;
+
+const Page = styled.div`
+  width: 100%;
+  font-size: 15px;
+  display: flex;
+  gap: 5px;
+  padding: 10px 0px;
+  color: lightgrey;
   transition: all 0.5s ease-in-out;
 `;
 
