@@ -36,8 +36,7 @@ export const Testimonials = () => {
             <Message>
               "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
               assumenda maiores officia cum laborum voluptate dicta numquam.
-              Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam
-              temporibus quas accusantium laborum!"
+              Voluptate nisi officiis digniss
             </Message>
             <PersonDetailsWrapper>
               <PersonImage src={person} />
@@ -75,9 +74,7 @@ export const Testimonials = () => {
           <RightSide>
             <Message>
               "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
-              assumenda maiores officia cum laborum voluptate dicta numquam.
-              Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam
-              temporibus quas accusantium laborum!"
+              assumenda maiores officia
             </Message>
             <PersonDetailsWrapper>
               <PersonImage src={person} />
@@ -128,6 +125,13 @@ const Header = styled.div`
   flex-direction: column;
   gap: 20px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    max-width: 750px;
+  }
+  @media (max-width: 768px) {
+    max-width: 85%;
+  }
 `;
 
 const TestimonialsHeading = styled.p`
@@ -141,6 +145,13 @@ const TestimonialsHeading = styled.p`
 const Heading = styled.h1`
   color: black;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 25px;
+  }
 `;
 
 const Description = styled.p`
@@ -148,6 +159,13 @@ const Description = styled.p`
   letter-spacing: 1px;
   color: grey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;
 
 const MySlider = styled(Slider)`
@@ -162,11 +180,19 @@ const MySlide = styled.div`
   gap: 50px;
   padding: 0 10px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftSide = styled.div`
   width: 50%;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    width: 100%;
+  }
 `;
 
 const SlideImage = styled(Image)`
@@ -174,6 +200,13 @@ const SlideImage = styled(Image)`
   height: 500px;
   object-fit: cover;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    height: 300px;
+  }
+  @media (max-width: 376px) {
+    height: 250px;
+  }
 `;
 
 const RightSide = styled.div`
@@ -183,12 +216,20 @@ const RightSide = styled.div`
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    width: 100%;
+  }
 `;
 
 const Message = styled.p`
   font-size: 24px;
   letter-spacing: 1px;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const PersonDetailsWrapper = styled.div`
@@ -199,6 +240,11 @@ const PersonDetailsWrapper = styled.div`
 const PersonImage = styled(Image)`
   width: 80px;
   height: 80px;
+
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
 `;
 
 const PersonDetails = styled.div`
@@ -206,14 +252,26 @@ const PersonDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media (max-width: 768px) {
+    height: 70px;
+  }
 `;
 
 const PersonName = styled.p`
   font-size: 20px;
   font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const PersonDesc = styled.p`
   font-size: 17px;
   color: grey;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;

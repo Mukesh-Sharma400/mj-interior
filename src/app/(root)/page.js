@@ -26,5 +26,7 @@ export default function Home() {
 }
 
 const DisplayWrapper = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
   transition: all 0.5s ease-in-out;
 `;

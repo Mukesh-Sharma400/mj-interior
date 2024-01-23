@@ -94,6 +94,10 @@ const DisplayWrapper = styled.div`
   background-size: 200px 200px;
   background-color: #0c0e17;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ColumnsWrapper = styled.div`
@@ -101,6 +105,10 @@ const ColumnsWrapper = styled.div`
   display: flex;
   gap: 100px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
 `;
 
 const Column1 = styled.div`

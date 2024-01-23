@@ -50,6 +50,13 @@ const Header = styled.div`
   flex-direction: column;
   gap: 20px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    max-width: 750px;
+  }
+  @media (max-width: 768px) {
+    max-width: 85%;
+  }
 `;
 
 const GalleryHeading = styled.p`
@@ -63,6 +70,13 @@ const GalleryHeading = styled.p`
 const Heading = styled.h1`
   color: black;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 25px;
+  }
 `;
 
 const Description = styled.p`
@@ -70,11 +84,19 @@ const Description = styled.p`
   letter-spacing: 1px;
   color: grey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;
 
 const GalleryWrapper = styled.div`
   width: 90%;
   height: 100vh;
+  max-height: 700px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -117,6 +139,13 @@ const GalleryWrapper = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+
+  @media (max-width: 426px) {
+    max-height: 300px;
+  }
+  @media (max-width: 376px) {
+    max-height: 250px;
   }
 `;
 

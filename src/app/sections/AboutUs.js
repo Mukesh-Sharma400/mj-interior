@@ -29,9 +29,16 @@ export const AboutUs = () => {
 const DisplayWrapper = styled.div`
   width: 100%;
   height: 100vh;
+  max-height: 700px;
   display: flex;
   align-items: center;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+    height: 100%;
+    max-height: unset;
+  }
 `;
 
 const LeftSide = styled.div`
@@ -58,6 +65,19 @@ const RightSide = styled.div`
   justify-content: space-between;
   padding: 50px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    gap: 40px;
+    height: fit-content;
+  }
+  @media (max-width: 376px) {
+    padding: 40px;
+    gap: 30px;
+  }
+  @media (max-width: 321px) {
+    padding: 30px;
+    gap: 25px;
+  }
 `;
 
 const AboutUsHeading = styled.p`
@@ -69,6 +89,13 @@ const AboutUsHeading = styled.p`
 
 const Heading = styled.h1`
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 25px;
+  }
 `;
 
 const Description = styled.p`
@@ -76,6 +103,13 @@ const Description = styled.p`
   letter-spacing: 1px;
   color: grey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;
 
 const Button = styled.button`
@@ -111,5 +145,21 @@ const Button = styled.button`
   &:hover .transition {
     width: 14em;
     height: 14em;
+  }
+
+  @media (max-width: 1024px) {
+    width: 170px;
+    height: 50px;
+    font-size: 18px;
+  }
+  @media (max-width: 376px) {
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+  }
+  @media (max-width: 321px) {
+    width: 130px;
+    height: 40px;
+    font-size: 14px;
   }
 `;

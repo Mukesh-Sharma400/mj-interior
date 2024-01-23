@@ -45,6 +45,10 @@ const BackgroundImage = styled(Image)`
   width: 100%;
   height: 100vh;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    object-fit: cover;
+  }
 `;
 
 const Overlay = styled.div`
@@ -71,18 +75,43 @@ const ContentWrapper = styled.div`
   text-align: start;
   gap: 16px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    max-width: 670px;
+    left: 5%;
+  }
 `;
 
 const Heading = styled.h1`
   font-size: 60px;
   color: white;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 45px;
+  }
+  @media (max-width: 426px) {
+    font-size: 35px;
+  }
+  @media (max-width: 376px) {
+    font-size: 30px;
+  }
+  @media (max-width: 321px) {
+    font-size: 25px;
+  }
 `;
 
 const Description = styled.p`
   font-size: 20px;
   color: white;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+  @media (max-width: 426px) {
+    font-size: 12px;
+  }
 `;
 
 const Button = styled.button`
@@ -118,5 +147,16 @@ const Button = styled.button`
   &:hover .transition {
     width: 14em;
     height: 14em;
+  }
+
+  @media (max-width: 1024px) {
+    width: 140px;
+    height: 35px;
+    font-size: 18px;
+  }
+  @media (max-width: 426px) {
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
   }
 `;

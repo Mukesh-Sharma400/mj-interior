@@ -112,7 +112,7 @@ const Divider = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  width: 250px;
+  width: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,10 +125,30 @@ const Number = styled.p`
   font-size: 40px;
   color: black;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 27px;
+  }
+  @media (max-width: 321px) {
+    font-size: 25px;
+  }
 `;
 
 const Label = styled.p`
   font-size: 20px;
   color: grey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    font-size: 18px;
+  }
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
+  @media (max-width: 321px) {
+    font-size: 15px;
+  }
 `;

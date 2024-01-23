@@ -49,6 +49,8 @@ const DisplayWrapper = styled.div`
   right: 0;
   padding: 0px 5%;
   height: ${(props) => (props.scrolled ? "70px" : "90px")};
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,6 +65,9 @@ const DisplayWrapper = styled.div`
     props.scrolled ? "1px solid rgba(225, 225, 225, 1)" : "none"};
   z-index: 2;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+   display: none;
 `;
 
 const Logo = styled(Image)`

@@ -17,9 +17,17 @@ export const Services = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 426,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
 
   return (
@@ -101,6 +109,7 @@ const DisplayWrapper = styled.div`
   background-color: #0c0e17;
   transition: all 0.5s ease-in-out;
 `;
+
 const Header = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -110,6 +119,13 @@ const Header = styled.div`
   flex-direction: column;
   gap: 20px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    max-width: 750px;
+  }
+  @media (max-width: 768px) {
+    max-width: 85%;
+  }
 `;
 
 const ServicesHeading = styled.p`
@@ -123,6 +139,13 @@ const ServicesHeading = styled.p`
 const Heading = styled.h1`
   color: white;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (max-width: 376px) {
+    font-size: 25px;
+  }
 `;
 
 const Description = styled.p`
@@ -130,6 +153,13 @@ const Description = styled.p`
   letter-spacing: 1px;
   color: lightgrey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;
 
 const MySlider = styled(Slider)`
@@ -168,4 +198,17 @@ const SlideTitle = styled.p`
   font-size: 25px;
   color: white;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
+  @media (max-width: 321px) {
+    font-size: 12px;
+  }
 `;
