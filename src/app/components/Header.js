@@ -3,9 +3,11 @@ import Image from "next/image";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import logo from "../../../public/assets/logo.png";
+import { SideMenu } from "./SideMenu";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [sideMenuOpened, setSideMenuOpened] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,27 +20,38 @@ export const Header = () => {
     };
   }, []);
 
+  const handleSideMenu = () => {
+    setSideMenuOpened(!sideMenuOpened);
+  };
+
   return (
-    <DisplayWrapper scrolled={scrolled}>
-      <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
-      <RoutesWrapper scrolled={scrolled}>
-        <Route href="/" scrolled={scrolled}>
-          Home
-        </Route>
-        <Route href="/" scrolled={scrolled}>
-          Services
-        </Route>
-        <Route href="/" scrolled={scrolled}>
-          Projects
-        </Route>
-        <Route href="/" scrolled={scrolled}>
-          About Us
-        </Route>
-        <Route href="/" scrolled={scrolled}>
-          Contact
-        </Route>
-      </RoutesWrapper>
-    </DisplayWrapper>
+    <>
+      <DisplayWrapper scrolled={scrolled}>
+        <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
+        <RoutesWrapper scrolled={scrolled}>
+          <Route href="/" scrolled={scrolled}>
+            Home
+          </Route>
+          <Route href="/" scrolled={scrolled}>
+            Services
+          </Route>
+          <Route href="/" scrolled={scrolled}>
+            Projects
+          </Route>
+          <Route href="/" scrolled={scrolled}>
+            About Us
+          </Route>
+          <Route href="/" scrolled={scrolled}>
+            Contact
+          </Route>
+        </RoutesWrapper>
+        <Button onClick={handleSideMenu} />
+      </DisplayWrapper>
+      <SideMenu
+        sideMenuOpened={sideMenuOpened}
+        setSideMenuOpened={setSideMenuOpened}
+      />
+    </>
   );
 };
 
@@ -65,9 +78,6 @@ const DisplayWrapper = styled.div`
     props.scrolled ? "1px solid rgba(225, 225, 225, 1)" : "none"};
   z-index: 2;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-   display: none;
 `;
 
 const Logo = styled(Image)`
@@ -81,6 +91,10 @@ const RoutesWrapper = styled.div`
   align-items: center;
   gap: 16px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    display: none;
+  }
 `;
 
 const Route = styled(Link)`
@@ -90,13 +104,15 @@ const Route = styled(Link)`
   transition: all 0.5s ease-in-out;
 `;
 
-const ContactBtn = styled.button`
-  font-size: 20px;
-  font-weight: 600;
-  color: ${(props) => (props.scrolled ? "white" : "black")};
-  background-color: ${(props) => (props.scrolled ? "black" : "white")};
-  border-radius: 40px;
+const Button = styled.button`
+  display: none;
+
+  @media (max-width: 426px) {
+    display: initial;
+  }
+
+  width: 40px;
   height: 40px;
-  padding: 0 15px;
-  transition: all 0.5s ease-in-out;
+  border-radius: 50%;
+  background-color: lightblue;
 `;
