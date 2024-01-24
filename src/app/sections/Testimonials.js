@@ -30,7 +30,7 @@ export const Testimonials = () => {
       <MySlider {...settings}>
         <MySlide>
           <LeftSide>
-            <SlideImage src={interior} />
+            <SlideImage src={interior} alt="interior" />
           </LeftSide>
           <RightSide>
             <Message>
@@ -39,7 +39,7 @@ export const Testimonials = () => {
               Voluptate nisi officiis digniss
             </Message>
             <PersonDetailsWrapper>
-              <PersonImage src={person} />
+              <PersonImage src={person} alt="person" />
               <PersonDetails>
                 <PersonName>Mukesh Sharma</PersonName>
                 <PersonDesc>Web Developer</PersonDesc>
@@ -49,7 +49,7 @@ export const Testimonials = () => {
         </MySlide>
         <MySlide>
           <LeftSide>
-            <SlideImage src={interior} />
+            <SlideImage src={interior} alt="interior" />
           </LeftSide>
           <RightSide>
             <Message>
@@ -59,7 +59,7 @@ export const Testimonials = () => {
               temporibus quas accusantium laborum!"
             </Message>
             <PersonDetailsWrapper>
-              <PersonImage src={person} />
+              <PersonImage src={person} alt="person" />
               <PersonDetails>
                 <PersonName>Mukesh Sharma</PersonName>
                 <PersonDesc>Web Developer</PersonDesc>
@@ -69,7 +69,7 @@ export const Testimonials = () => {
         </MySlide>
         <MySlide>
           <LeftSide>
-            <SlideImage src={interior} />
+            <SlideImage src={interior} alt="interior" />
           </LeftSide>
           <RightSide>
             <Message>
@@ -77,7 +77,7 @@ export const Testimonials = () => {
               assumenda maiores officia
             </Message>
             <PersonDetailsWrapper>
-              <PersonImage src={person} />
+              <PersonImage src={person} alt="person" />
               <PersonDetails>
                 <PersonName>Mukesh Sharma</PersonName>
                 <PersonDesc>Web Developer</PersonDesc>
@@ -87,7 +87,7 @@ export const Testimonials = () => {
         </MySlide>
         <MySlide>
           <LeftSide>
-            <SlideImage src={interior} />
+            <SlideImage src={interior} alt="interior" />
           </LeftSide>
           <RightSide>
             <Message>
@@ -97,7 +97,7 @@ export const Testimonials = () => {
               temporibus quas accusantium laborum!"
             </Message>
             <PersonDetailsWrapper>
-              <PersonImage src={person} />
+              <PersonImage src={person} alt="person" />
               <PersonDetails>
                 <PersonName>Mukesh Sharma</PersonName>
                 <PersonDesc>Web Developer</PersonDesc>
@@ -226,6 +226,7 @@ const Message = styled.p`
   font-size: 24px;
   letter-spacing: 1px;
   font-style: italic;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     font-size: 20px;
@@ -235,11 +236,13 @@ const Message = styled.p`
 const PersonDetailsWrapper = styled.div`
   display: flex;
   gap: 20px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const PersonImage = styled(Image)`
   width: 80px;
   height: 80px;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     width: 70px;
@@ -252,6 +255,7 @@ const PersonDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     height: 70px;
@@ -261,6 +265,7 @@ const PersonDetails = styled.div`
 const PersonName = styled.p`
   font-size: 20px;
   font-weight: 600;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     font-size: 18px;
@@ -270,6 +275,7 @@ const PersonName = styled.p`
 const PersonDesc = styled.p`
   font-size: 17px;
   color: grey;
+  transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     font-size: 15px;

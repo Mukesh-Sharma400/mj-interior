@@ -135,8 +135,8 @@ const Description = styled.p`
 const SectionHeading = styled.p`
   font-size: 25px;
   color: white;
-  transition: all 0.5s ease-in-out;
   margin-bottom: 10px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const Column2 = styled.div`

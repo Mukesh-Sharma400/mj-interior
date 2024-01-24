@@ -16,19 +16,19 @@ export const Gallery = () => {
       </Header>
       <GalleryWrapper>
         <div class="Column1">
-          <StyledImage src={interior} />
+          <StyledImage src={interior} alt="interior" />
         </div>
         <div class="Column21">
-          <StyledImage src={interior} />
+          <StyledImage src={interior} alt="interior" />
         </div>
         <div class="Column22">
-          <StyledImage src={interior} />
+          <StyledImage src={interior} alt="interior" />
         </div>
         <div class="Column31">
-          <StyledImage src={interior} />
+          <StyledImage src={interior} alt="interior" />
         </div>
         <div class="Column32">
-          <StyledImage src={interior} />
+          <StyledImage src={interior} alt="interior" />
         </div>
       </GalleryWrapper>
     </DisplayWrapper>

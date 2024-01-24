@@ -44,49 +44,49 @@ export const Services = () => {
       <MySlider {...settings}>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={interior} />
+            <SlideImage src={interior} alt="Interior Designing" />
           </SlideImageWrapper>
           <SlideTitle>Interior Designing</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={civilWork} />
+            <SlideImage src={civilWork} alt="Civil Work" />
           </SlideImageWrapper>
           <SlideTitle>Civil Work</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={flooring} />
+            <SlideImage src={flooring} alt="Tiling And Flooring" />
           </SlideImageWrapper>
           <SlideTitle>Tiling And Flooring</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={electrical} />
+            <SlideImage src={electrical} alt="Electrical Work" />
           </SlideImageWrapper>
           <SlideTitle>Electrical Work</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={fabrication} />
+            <SlideImage src={fabrication} alt="Fabrication Work" />
           </SlideImageWrapper>
           <SlideTitle>Fabrication Work</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={painting} />
+            <SlideImage src={painting} alt="Painting Work" />
           </SlideImageWrapper>
           <SlideTitle>Painting Work</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={popWork} />
+            <SlideImage src={popWork} alt="POP Work" />
           </SlideImageWrapper>
           <SlideTitle>POP Work</SlideTitle>
         </MySlide>
         <MySlide>
           <SlideImageWrapper>
-            <SlideImage src={carpenters} />
+            <SlideImage src={carpenters} alt="Carpenter Work" />
           </SlideImageWrapper>
           <SlideTitle>Carpenter Work</SlideTitle>
         </MySlide>
