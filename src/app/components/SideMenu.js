@@ -32,7 +32,9 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
   return (
     <DisplayWrapper ref={sideMenuRef} sideMenuOpened={sideMenuOpened}>
       <RoutesWrapper>
-        <Route href="/">Home</Route>
+        <Route className="active" href="/">
+          Home
+        </Route>
         <Route href="/">Services</Route>
         <Route href="/">Projects</Route>
         <Route href="/">About Us</Route>
@@ -83,5 +85,21 @@ const Route = styled(Link)`
   padding: 0 10px;
   border-radius: 8px;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   transition: all 0.5s ease-in-out;
+
+  &.active {
+    color: white;
+    background-color: #ab81e8;
+
+    &:focus {
+      color: white;
+      background-color: #ab81e8;
+    }
+  }
+
+  &:focus {
+    color: white;
+    background-color: #23c3c4;
+  }
 `;

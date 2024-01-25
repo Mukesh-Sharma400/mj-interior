@@ -29,7 +29,7 @@ export const Header = () => {
       <DisplayWrapper scrolled={scrolled}>
         <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
         <RoutesWrapper scrolled={scrolled}>
-          <Route href="/" scrolled={scrolled}>
+          <Route className="active" href="/" scrolled={scrolled}>
             Home
           </Route>
           <Route href="/" scrolled={scrolled}>
@@ -106,6 +106,21 @@ const Route = styled(Link)`
   color: ${(props) => (props.scrolled ? "black" : "white")};
   text-decoration: none;
   transition: all 0.5s ease-in-out;
+  padding-bottom: 3px;
+
+  &.active {
+    color: #ab81e8;
+    font-weight: bold;
+    border-bottom: 2px solid #ab81e8;
+
+    &:hover {
+      color: #ab81e8;
+    }
+  }
+
+  &:hover {
+    color: #23c3c4;
+  }
 `;
 
 const Button = styled.button`
@@ -117,8 +132,13 @@ const Button = styled.button`
   --rotate-bar-one: 0;
   --rotate-bar-three: 0;
 
+  display: none;
+
+  @media (max-width: 426px) {
+    display: flex;
+  }
+
   width: 40px;
-  display: flex;
   flex-direction: column;
   gap: var(--gap);
   cursor: pointer;
