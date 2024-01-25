@@ -62,7 +62,9 @@ export const Footer = () => {
       </ColumnsWrapper>
       <BottomWrapper>
         <LeftSide>
-          <p>© 2024 MJ Interior. All rights reserved.</p>
+          <p>
+            © 2024 <span>MJ Interior</span>. All rights reserved.
+          </p>
         </LeftSide>
         <RightSide>
           <p>
@@ -93,10 +95,6 @@ const DisplayWrapper = styled.div`
   background-size: 200px 200px;
   background-color: #0c0e17;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const ColumnsWrapper = styled.div`
@@ -108,6 +106,14 @@ const ColumnsWrapper = styled.div`
   @media (max-width: 1024px) {
     gap: 40px;
   }
+
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+  }
 `;
 
 const Column1 = styled.div`
@@ -117,6 +123,14 @@ const Column1 = styled.div`
   align-items: start;
   gap: 10px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+
+  @media (max-width: 426px) {
+    width: 100%;
+  }
 `;
 
 const Logo = styled(Image)`
@@ -129,6 +143,10 @@ const Description = styled.p`
   font-size: 15px;
   color: lightgrey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const SectionHeading = styled.p`
@@ -145,6 +163,10 @@ const Column2 = styled.div`
   align-items: start;
   gap: 10px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 35%;
+  }
 `;
 
 const PagesWrapper = styled.div`
@@ -161,6 +183,10 @@ const Page = styled.div`
   padding: 10px 0px;
   color: lightgrey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const Column3 = styled.div`
@@ -186,6 +212,10 @@ const Service = styled.div`
   padding: 10px 0px;
   color: lightgrey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 const BottomWrapper = styled.div`
@@ -195,10 +225,24 @@ const BottomWrapper = styled.div`
   color: white;
   font-size: 15px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 `;
 
 const LeftSide = styled.div`
   transition: all 0.5s ease-in-out;
+
+  span {
+    font-weight: 600;
+  }
 `;
 
 const RightSide = styled.div`
