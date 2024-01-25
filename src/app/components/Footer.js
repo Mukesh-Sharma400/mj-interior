@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import logo from "../../../public/assets/logo.png";
@@ -29,34 +28,34 @@ export const Footer = () => {
           <SectionHeading>Services</SectionHeading>
           <ServicesWrapper>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Interior Designing
+              <i className="bi bi-check-circle-fill"></i>Interior Designing
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Civil Work
+              <i className="bi bi-check-circle-fill"></i>Civil Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Tiling And Flooring
+              <i className="bi bi-check-circle-fill"></i>Tiling And Flooring
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Electrical Work
+              <i className="bi bi-check-circle-fill"></i>Electrical Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Fabrication Work
+              <i className="bi bi-check-circle-fill"></i>Fabrication Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Painting Work
+              <i className="bi bi-check-circle-fill"></i>Painting Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>POP Work
+              <i className="bi bi-check-circle-fill"></i>POP Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Carpenter Work
+              <i className="bi bi-check-circle-fill"></i>Carpenter Work
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Modular Kitchen
+              <i className="bi bi-check-circle-fill"></i>Modular Kitchen
             </Service>
             <Service>
-              <i class="bi bi-check-circle-fill"></i>Turnkey Contractor
+              <i className="bi bi-check-circle-fill"></i>Turnkey Contractor
             </Service>
           </ServicesWrapper>
         </Column3>

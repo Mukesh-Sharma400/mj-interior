@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const useCountingEffect = (targetCount, startCounting) => {
   const [count, setCount] = useState(0);

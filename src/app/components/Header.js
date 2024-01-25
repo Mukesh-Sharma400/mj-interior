@@ -106,13 +106,12 @@ const Route = styled(Link)`
 
 const Button = styled.button`
   display: none;
-
-  @media (max-width: 426px) {
-    display: initial;
-  }
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: lightblue;
+
+  @media (max-width: 426px) {
+    display: initial;
+  }
 `;

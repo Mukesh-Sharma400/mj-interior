@@ -17,8 +17,8 @@ export const Hero = () => {
           and meticulous design.
         </Description>
         <Button>
-          <span class="transition"></span>
-          <span class="label">See Projects</span>
+          <span className="transition"></span>
+          <span className="label">See Projects</span>
         </Button>
       </ContentWrapper>
     </DisplayWrapper>

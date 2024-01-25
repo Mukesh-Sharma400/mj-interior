@@ -15,19 +15,19 @@ export const Gallery = () => {
         </Description>
       </Header>
       <GalleryWrapper>
-        <div class="Column1">
+        <div className="Column1">
           <StyledImage src={interior} alt="interior" />
         </div>
-        <div class="Column21">
+        <div className="Column21">
           <StyledImage src={interior} alt="interior" />
         </div>
-        <div class="Column22">
+        <div className="Column22">
           <StyledImage src={interior} alt="interior" />
         </div>
-        <div class="Column31">
+        <div className="Column31">
           <StyledImage src={interior} alt="interior" />
         </div>
-        <div class="Column32">
+        <div className="Column32">
           <StyledImage src={interior} alt="interior" />
         </div>
       </GalleryWrapper>

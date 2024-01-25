@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { useEffect, useRef } from "react";
 
 export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
   const sideMenuRef = useRef();
@@ -37,10 +37,6 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
 
 const DisplayWrapper = styled.div`
   display: none;
-
-  @media (max-width: 426px) {
-    display: initial;
-  }
   width: 50%;
   height: 100vh;
   background: rgba(225, 225, 225, 0.3);
@@ -54,4 +50,8 @@ const DisplayWrapper = styled.div`
   right: ${(props) => (props.sideMenuOpened ? "0px" : "-400px")};
   z-index: 1;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    display: initial;
+  }
 `;

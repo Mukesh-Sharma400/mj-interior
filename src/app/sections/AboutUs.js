@@ -18,8 +18,8 @@ export const AboutUs = () => {
           captivating sights.
         </Description>
         <Button>
-          <span class="transition"></span>
-          <span class="label">Contact Now</span>
+          <span className="transition"></span>
+          <span className="label">Contact Now</span>
         </Button>
       </RightSide>
     </DisplayWrapper>
