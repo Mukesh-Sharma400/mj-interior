@@ -3,9 +3,11 @@ import Image from "next/image";
 import { SideMenu } from "./SideMenu";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import logo from "../../../public/assets/logo.png";
 
 export const Header = () => {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [sideMenuOpened, setSideMenuOpened] = useState(false);
 
@@ -29,19 +31,39 @@ export const Header = () => {
       <DisplayWrapper scrolled={scrolled}>
         <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
         <RoutesWrapper scrolled={scrolled}>
-          <Route className="active" href="/" scrolled={scrolled}>
+          <Route
+            className={pathname === "/" && "active"}
+            href="/"
+            scrolled={scrolled}
+          >
             Home
           </Route>
-          <Route href="/services" scrolled={scrolled}>
+          <Route
+            className={pathname === "/services" && "active"}
+            href="/services"
+            scrolled={scrolled}
+          >
             Services
           </Route>
-          <Route href="/projects" scrolled={scrolled}>
+          <Route
+            className={pathname === "/projects" && "active"}
+            href="/projects"
+            scrolled={scrolled}
+          >
             Projects
           </Route>
-          <Route href="/aboutus" scrolled={scrolled}>
+          <Route
+            className={pathname === "/aboutus" && "active"}
+            href="/aboutus"
+            scrolled={scrolled}
+          >
             About Us
           </Route>
-          <Route href="/contact" scrolled={scrolled}>
+          <Route
+            className={pathname === "/contact" && "active"}
+            href="/contact"
+            scrolled={scrolled}
+          >
             Contact
           </Route>
         </RoutesWrapper>

@@ -1,9 +1,11 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
   const sideMenuRef = useRef();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
@@ -32,13 +34,27 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
   return (
     <DisplayWrapper ref={sideMenuRef} sideMenuOpened={sideMenuOpened}>
       <RoutesWrapper>
-        <Route className="active" href="/">
+        <Route className={pathname === "/" && "active"} href="/">
           Home
         </Route>
-        <Route href="/services">Services</Route>
-        <Route href="/projects">Projects</Route>
-        <Route href="/aboutus">About Us</Route>
-        <Route href="/contact">Contact</Route>
+        <Route
+          className={pathname === "/services" && "active"}
+          href="/services"
+        >
+          Services
+        </Route>
+        <Route
+          className={pathname === "/projects" && "active"}
+          href="/projects"
+        >
+          Projects
+        </Route>
+        <Route className={pathname === "/aboutus" && "active"} href="/aboutus">
+          About Us
+        </Route>
+        <Route className={pathname === "/contact" && "active"} href="/contact">
+          Contact
+        </Route>
       </RoutesWrapper>
     </DisplayWrapper>
   );
