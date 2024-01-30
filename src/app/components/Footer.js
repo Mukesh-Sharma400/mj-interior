@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import logo from "../../../public/assets/logo.png";
@@ -17,11 +18,11 @@ export const Footer = () => {
         <Column2>
           <SectionHeading>Pages</SectionHeading>
           <PagesWrapper>
-            <Page>Home</Page>
-            <Page>Services</Page>
-            <Page>Projects</Page>
-            <Page>About Us</Page>
-            <Page>Contact</Page>
+            <Page href="/">Home</Page>
+            <Page href="/services">Services</Page>
+            <Page href="/projects">Projects</Page>
+            <Page href="/aboutus">About Us</Page>
+            <Page href="/contact">Contact</Page>
           </PagesWrapper>
         </Column2>
         <Column3>
@@ -175,14 +176,19 @@ const PagesWrapper = styled.div`
   transition: all 0.5s ease-in-out;
 `;
 
-const Page = styled.div`
+const Page = styled(Link)`
   width: 100%;
   font-size: 15px;
   display: flex;
   gap: 5px;
   padding: 10px 0px;
   color: lightgrey;
+  text-decoration: none;
   transition: all 0.5s ease-in-out;
+
+  &:hover {
+    color: #23c3c4;
+  }
 
   @media (max-width: 768px) {
     font-size: 13px;

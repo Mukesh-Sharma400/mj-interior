@@ -32,16 +32,16 @@ export const Header = () => {
           <Route className="active" href="/" scrolled={scrolled}>
             Home
           </Route>
-          <Route href="/" scrolled={scrolled}>
+          <Route href="/services" scrolled={scrolled}>
             Services
           </Route>
-          <Route href="/" scrolled={scrolled}>
+          <Route href="/projects" scrolled={scrolled}>
             Projects
           </Route>
-          <Route href="/" scrolled={scrolled}>
+          <Route href="/aboutus" scrolled={scrolled}>
             About Us
           </Route>
-          <Route href="/" scrolled={scrolled}>
+          <Route href="/contact" scrolled={scrolled}>
             Contact
           </Route>
         </RoutesWrapper>

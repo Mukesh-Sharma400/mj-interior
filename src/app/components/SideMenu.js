@@ -35,10 +35,10 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
         <Route className="active" href="/">
           Home
         </Route>
-        <Route href="/">Services</Route>
-        <Route href="/">Projects</Route>
-        <Route href="/">About Us</Route>
-        <Route href="/">Contact</Route>
+        <Route href="/services">Services</Route>
+        <Route href="/projects">Projects</Route>
+        <Route href="/aboutus">About Us</Route>
+        <Route href="/contact">Contact</Route>
       </RoutesWrapper>
     </DisplayWrapper>
   );
