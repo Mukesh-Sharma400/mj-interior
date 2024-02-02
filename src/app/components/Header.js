@@ -35,6 +35,7 @@ export const Header = () => {
             className={pathname === "/" && "active"}
             href="/"
             scrolled={scrolled}
+            pathname={pathname}
           >
             Home
           </Route>
@@ -42,6 +43,7 @@ export const Header = () => {
             className={pathname === "/services" && "active"}
             href="/services"
             scrolled={scrolled}
+            pathname={pathname}
           >
             Services
           </Route>
@@ -49,6 +51,7 @@ export const Header = () => {
             className={pathname === "/projects" && "active"}
             href="/projects"
             scrolled={scrolled}
+            pathname={pathname}
           >
             Projects
           </Route>
@@ -56,6 +59,7 @@ export const Header = () => {
             className={pathname === "/aboutus" && "active"}
             href="/aboutus"
             scrolled={scrolled}
+            pathname={pathname}
           >
             About Us
           </Route>
@@ -63,6 +67,7 @@ export const Header = () => {
             className={pathname === "/contact" && "active"}
             href="/contact"
             scrolled={scrolled}
+            pathname={pathname}
           >
             Contact
           </Route>
@@ -125,7 +130,8 @@ const RoutesWrapper = styled.div`
 
 const Route = styled(Link)`
   font-size: 16px;
-  color: ${(props) => (props.scrolled ? "black" : "white")};
+  color: ${(props) =>
+    props.scrolled || props.pathname !== "/" ? "black" : "white"};
   text-decoration: none;
   transition: all 0.5s ease-in-out;
   padding-bottom: 3px;
