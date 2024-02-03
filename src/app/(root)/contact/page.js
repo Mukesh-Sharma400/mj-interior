@@ -51,10 +51,9 @@ export default function Contact() {
         <RightSide>
           <LightHeading>Head Office</LightHeading>
           <Description>
-            Explore our main office for tailored interior design solutions. Our
-            skilled team is poised to help you reimagine spaces, reflecting your
-            unique taste. Book a consultation today, and let's collaborate to
-            bring your design aspirations to reality.
+            Step into our main office and embark on a journey of personalized
+            interior design solutions! Come visit us and let's reimagine your
+            surroundings together!
           </Description>
           <PhoneEmailLocationWrapper>
             <PhoneEmailLocationContainer>
@@ -176,8 +175,24 @@ const ContactForm = styled.div`
   flex-direction: column;
   gap: 2rem;
   border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding: 4rem;
+    max-width: 700px;
+  }
+  @media (max-width: 426px) {
+    padding: 2rem;
+    max-width: 90%;
+  }
+  @media (max-width: 376px) {
+    padding: 1.5rem;
+  }
+  @media (max-width: 321px) {
+    padding: 1rem;
+  }
 `;
 
 const FieldContainer = styled.div`
@@ -228,6 +243,10 @@ const EmailPhoneWrapper = styled.div`
   align-items: center;
   gap: 2rem;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
@@ -353,6 +372,11 @@ const IconText = styled.p`
   margin: 0;
   font-size: 18px;
   color: black;
+  word-break: break-all;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   transition: all 0.5s ease-in-out;
 `;
 
