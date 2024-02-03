@@ -8,38 +8,40 @@ import aboutus from "../../../../public/assets/aboutus-section.jpg";
 export default function Contact() {
   return (
     <BaseLayout>
-      <Header>
-        <Heading>Contact</Heading>
-        <Description>
-          For personalized interior design solutions, contact our expert team.
-          We transform spaces to reflect your style. Schedule a consultation to
-          bring your vision to life.
-        </Description>
-      </Header>
-      <ContactForm>
-        <FieldContainer>
-          <Label>Your Full Name</Label>
-          <TextBox placeholder="John Doe" />
-        </FieldContainer>
-        <EmailPhoneWrapper>
+      <MainSection>
+        <Header>
+          <Heading>Contact</Heading>
+          <Description>
+            For personalized interior design solutions, contact our expert team.
+            We transform spaces to reflect your style. Schedule a consultation
+            to bring your vision to life.
+          </Description>
+        </Header>
+        <ContactForm>
           <FieldContainer>
-            <Label>Your Email</Label>
-            <TextBox placeholder="john.doe@example.com" />
+            <Label>Your Full Name</Label>
+            <TextBox placeholder="John Doe" />
           </FieldContainer>
+          <EmailPhoneWrapper>
+            <FieldContainer>
+              <Label>Your Email</Label>
+              <TextBox placeholder="john.doe@example.com" />
+            </FieldContainer>
+            <FieldContainer>
+              <Label>Your Phone Number</Label>
+              <TextBox placeholder="(+91) 555-555-5555" />
+            </FieldContainer>
+          </EmailPhoneWrapper>
           <FieldContainer>
-            <Label>Your Phone Number</Label>
-            <TextBox placeholder="(+91) 555-555-5555" />
+            <Label>Your Message</Label>
+            <TextArea placeholder="Type your message here..." />
           </FieldContainer>
-        </EmailPhoneWrapper>
-        <FieldContainer>
-          <Label>Your Message</Label>
-          <TextArea placeholder="Type your message here..." />
-        </FieldContainer>
-        <Button>
-          <span className="transition"></span>
-          <span className="label">Send Message</span>
-        </Button>
-      </ContactForm>
+          <Button>
+            <span className="transition"></span>
+            <span className="label">Send Message</span>
+          </Button>
+        </ContactForm>
+      </MainSection>
       <SmallHeader>
         <SmallHeading>Come Visit Us</SmallHeading>
         <Heading>Welcome to our office</Heading>
@@ -87,9 +89,9 @@ export default function Contact() {
 
 const Header = styled.div`
   max-width: 900px;
-  margin: 100px auto 0;
+  margin: 0 auto;
   text-align: center;
-  padding: 50px 0;
+  padding: 150px 0 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -167,6 +169,18 @@ const Description = styled.p`
   }
 `;
 
+const MainSection = styled.div`
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(128, 128, 128, 0.1),
+    rgba(128, 128, 128, 0.1) 0.5px,
+    transparent 0.5px,
+    transparent
+  );
+  background-size: 200px 200px;
+  background-color: #fff;
+`;
+
 const ContactForm = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -175,6 +189,7 @@ const ContactForm = styled.div`
   flex-direction: column;
   gap: 2rem;
   border-radius: 10px;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 0.5s ease-in-out;
