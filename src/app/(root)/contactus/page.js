@@ -2,22 +2,67 @@
 
 import Image from "next/image";
 import styled from "styled-components";
+import { useRef, useState } from "react";
+import { Toast } from "@/app/components/Toast";
 import BaseLayout from "@/app/components/BaseLayout";
 import aboutus from "../../../../public/assets/aboutus-section.jpg";
 
-export default function Contact() {
+export default function ContactUs() {
+  const form = useRef();
+  const timeoutRef = useRef(null);
+  const phoneNumber = "+918097775115";
+  const emailAddress = "mjinterior@gmail.com";
+  const officeAddress =
+    "Mj Interior, Plot No. 65, Ground Floor, Sector-5, Opp. Tilak International Collage. Near Rly. Station, Ghansoli, Navi Mumbai-400 701";
+  const [toast, setToast] = useState({ visible: false, message: "" });
+
+  const showToastMethod = (message) => {
+    setToast({ visible: true, message });
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setToast({ visible: false, message: "" });
+    }, 3000);
+  };
+
+  const handleOpenDialer = () => {
+    const telUrl = `tel:${phoneNumber}`;
+    window.location.href = telUrl;
+  };
+
+  const handleOpenMailer = () => {
+    const mailUrl = `mailto:${emailAddress}`;
+    window.location.href = mailUrl;
+  };
+
+  const handleOpenMap = () => {
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      officeAddress
+    )}`;
+    window.open(mapUrl, "_blank");
+  };
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    showToastMethod("Your message has been sent");
+  };
+
   return (
     <BaseLayout>
+      <ToastWrapper showToast={toast.visible}>
+        <Toast message={toast.message} color={"black"} />
+      </ToastWrapper>
       <MainSection>
         <Header>
-          <Heading>Contact</Heading>
+          <Heading>Contact Us</Heading>
           <Description>
             For personalized interior design solutions, contact our expert team.
             We transform spaces to reflect your style. Schedule a consultation
             to bring your vision to life.
           </Description>
         </Header>
-        <ContactForm>
+        <ContactForm ref={form} onSubmit={handleSendMessage}>
           <FieldContainer>
             <Label>Your Full Name</Label>
             <TextBox placeholder="John Doe" />
@@ -36,7 +81,7 @@ export default function Contact() {
             <Label>Your Message</Label>
             <TextArea placeholder="Type your message here..." />
           </FieldContainer>
-          <Button>
+          <Button type="submit">
             <span className="transition"></span>
             <span className="label">Send Message</span>
           </Button>
@@ -58,19 +103,19 @@ export default function Contact() {
             surroundings together!
           </Description>
           <PhoneEmailLocationWrapper>
-            <PhoneEmailLocationContainer>
+            <PhoneEmailLocationContainer onClick={handleOpenDialer}>
               <IconWrapper>
                 <i class="bi bi-telephone-fill"></i>
               </IconWrapper>
               <IconText>(+91) 809-777-5115</IconText>
             </PhoneEmailLocationContainer>
-            <PhoneEmailLocationContainer>
+            <PhoneEmailLocationContainer onClick={handleOpenMailer}>
               <IconWrapper>
                 <i class="bi bi-envelope-fill"></i>
               </IconWrapper>
               <IconText>mjinterior@gmail.com</IconText>
             </PhoneEmailLocationContainer>
-            <PhoneEmailLocationContainer>
+            <PhoneEmailLocationContainer onClick={handleOpenMap}>
               <IconWrapper>
                 <i class="bi bi-geo-alt-fill"></i>
               </IconWrapper>
@@ -86,6 +131,15 @@ export default function Contact() {
     </BaseLayout>
   );
 }
+
+const ToastWrapper = styled.div`
+  position: fixed;
+  top: ${(props) => (props.showToast ? "10%" : "-20%")};
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+`;
 
 const Header = styled.div`
   max-width: 900px;
@@ -181,7 +235,7 @@ const MainSection = styled.div`
   background-color: #fff;
 `;
 
-const ContactForm = styled.div`
+const ContactForm = styled.form`
   max-width: 900px;
   margin: 0 auto;
   padding: 5rem;
@@ -237,6 +291,10 @@ const TextBox = styled.input`
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
   }
+
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -250,6 +308,10 @@ const TextArea = styled.textarea`
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
   }
 `;
 
@@ -403,6 +465,10 @@ const PhoneEmailLocationContainer = styled.div`
   transition: all 0.5s ease-in-out;
 
   &:hover {
+    ${IconWrapper} {
+      color: #23c3c4;
+    }
+
     ${IconText} {
       color: #23c3c4;
     }

@@ -22,41 +22,41 @@ export const Footer = () => {
             <Page href="/services">Services</Page>
             <Page href="/projects">Projects</Page>
             <Page href="/aboutus">About Us</Page>
-            <Page href="/contact">Contact</Page>
+            <Page href="/contactus">Contact Us</Page>
           </PagesWrapper>
         </Column2>
         <Column3>
           <SectionHeading>Services</SectionHeading>
           <ServicesWrapper>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Interior Designing
+              <i class="bi bi-check2-circle"></i> Interior Designing
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Civil Work
+              <i class="bi bi-check2-circle"></i> Civil Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Tiling And Flooring
+              <i class="bi bi-check2-circle"></i> Tiling And Flooring
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Electrical Work
+              <i class="bi bi-check2-circle"></i> Electrical Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Fabrication Work
+              <i class="bi bi-check2-circle"></i> Fabrication Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Painting Work
+              <i class="bi bi-check2-circle"></i> Painting Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>POP Work
+              <i class="bi bi-check2-circle"></i> POP Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Carpenter Work
+              <i class="bi bi-check2-circle"></i> Carpenter Work
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Modular Kitchen
+              <i class="bi bi-check2-circle"></i> Modular Kitchen
             </Service>
             <Service>
-              <i className="bi bi-check-circle-fill"></i>Turnkey Contractor
+              <i class="bi bi-check2-circle"></i> Turnkey Contractor
             </Service>
           </ServicesWrapper>
         </Column3>
@@ -177,6 +177,7 @@ const PagesWrapper = styled.div`
 `;
 
 const Page = styled(Link)`
+  position: relative;
   width: 100%;
   font-size: 15px;
   display: flex;
@@ -185,9 +186,26 @@ const Page = styled(Link)`
   color: lightgrey;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
+  border-bottom: 1px solid transparent;
 
   &:hover {
     color: #23c3c4;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: transparent;
+    width: 0;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+    background-color: #23c3c4;
   }
 
   @media (max-width: 768px) {

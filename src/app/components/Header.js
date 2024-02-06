@@ -64,12 +64,12 @@ export const Header = () => {
             About Us
           </Route>
           <Route
-            className={pathname === "/contact" && "active"}
-            href="/contact"
+            className={pathname === "/contactus" && "active"}
+            href="/contactus"
             scrolled={scrolled}
             pathname={pathname}
           >
-            Contact
+            Contact Us
           </Route>
         </RoutesWrapper>
         <Button onClick={handleSideMenu} sideMenuOpened={sideMenuOpened}>
@@ -129,6 +129,7 @@ const RoutesWrapper = styled.div`
 `;
 
 const Route = styled(Link)`
+  position: relative;
   font-size: 16px;
   color: ${(props) =>
     props.scrolled || props.pathname !== "/" ? "black" : "white"};
@@ -136,18 +137,33 @@ const Route = styled(Link)`
   transition: all 0.5s ease-in-out;
   padding-bottom: 3px;
 
+  &:hover {
+    color: #23c3c4;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: ${(props) =>
+      props.className === "active" ? "#ab81e8" : "#23c3c4"};
+    width: 0;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
   &.active {
     color: #ab81e8;
     font-weight: bold;
-    border-bottom: 2px solid #ab81e8;
-
-    &:hover {
-      color: #ab81e8;
+    &::before {
+      width: 100%;
+      background-color: #ab81e8;
     }
-  }
-
-  &:hover {
-    color: #23c3c4;
   }
 `;
 

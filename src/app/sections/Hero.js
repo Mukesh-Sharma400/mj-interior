@@ -1,10 +1,42 @@
 import Image from "next/image";
+import copy from "clipboard-copy";
 import styled from "styled-components";
+import { useRef, useState } from "react";
+import { Toast } from "../components/Toast";
 import backgroundImage from "../../../public/assets/hero-background.jpg";
 
 export const Hero = () => {
+  const timeoutRef = useRef(null);
+  const phoneNumber = "+918097775115";
+  const emailAddress = "mjinterior@gmail.com";
+  const [toast, setToast] = useState({ visible: false, message: "" });
+
+  const showToastMethod = (message) => {
+    setToast({ visible: true, message });
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setToast({ visible: false, message: "" });
+    }, 3000);
+  };
+
+  const handleOpenDialer = () => {
+    const telUrl = `tel:${phoneNumber}`;
+    window.location.href = telUrl;
+  };
+
+  const handleCopyEmail = () => {
+    const emailToCopy = `${emailAddress}`;
+    copy(emailToCopy);
+    showToastMethod("Email copied to clipboard");
+  };
+
   return (
     <DisplayWrapper>
+      <ToastWrapper showToast={toast.visible}>
+        <Toast message={toast.message} color={"white"} />
+      </ToastWrapper>
       <BackgroundImageWrapper>
         <BackgroundImage src={backgroundImage} alt="Background Image" />
         <Overlay />
@@ -16,10 +48,20 @@ export const Hero = () => {
           to MJ Interior, where we bring dreams to life with sophisticated style
           and meticulous design.
         </Description>
-        <Button>
-          <span className="transition"></span>
-          <span className="label">See Projects</span>
-        </Button>
+        <ButtonsWrapper>
+          <PrimaryButton onClick={handleOpenDialer}>
+            <span className="transition"></span>
+            <span className="label">
+              <i class="bi bi-telephone-fill"></i> Call Us
+            </span>
+          </PrimaryButton>
+          <SecondaryButton onClick={handleCopyEmail}>
+            <span className="transition"></span>
+            <span className="label">
+              <i class="bi bi-copy"></i> Copy Email
+            </span>
+          </SecondaryButton>
+        </ButtonsWrapper>
       </ContentWrapper>
     </DisplayWrapper>
   );
@@ -29,6 +71,15 @@ const DisplayWrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
+  transition: all 0.5s ease-in-out;
+`;
+
+const ToastWrapper = styled.div`
+  position: fixed;
+  top: ${(props) => (props.showToast ? "10%" : "-20%")};
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   transition: all 0.5s ease-in-out;
 `;
 
@@ -114,11 +165,16 @@ const Description = styled.p`
   }
 `;
 
-const Button = styled.button`
-  width: 160px;
+const ButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const PrimaryButton = styled.button`
+  width: 200px;
   height: 40px;
   font-size: 20px;
-  font-weight: 600;
   color: white;
   background-color: #23c3c4;
   border-radius: 40px;
@@ -142,6 +198,57 @@ const Button = styled.button`
   .label {
     position: relative;
     top: -1px;
+  }
+
+  &:hover .transition {
+    width: 14em;
+    height: 14em;
+  }
+
+  @media (max-width: 1024px) {
+    width: 140px;
+    height: 35px;
+    font-size: 18px;
+  }
+  @media (max-width: 426px) {
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
+  }
+`;
+
+const SecondaryButton = styled.button`
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #23c3c4 !important;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+
+  .transition {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 500ms;
+    background-color: #ab81e8;
+    border-radius: 9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label {
+    position: relative;
+    top: -1px;
+  }
+
+  &:hover {
+    border: 2px solid #ab81e8 !important;
   }
 
   &:hover .transition {
