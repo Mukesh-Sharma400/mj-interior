@@ -226,6 +226,7 @@ const Message = styled.p`
   font-size: 24px;
   letter-spacing: 1px;
   font-style: italic;
+  color: black;
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
@@ -263,8 +264,9 @@ const PersonDetails = styled.div`
 `;
 
 const PersonName = styled.p`
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
+  color: black;
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
@@ -273,7 +275,7 @@ const PersonName = styled.p`
 `;
 
 const PersonDesc = styled.p`
-  font-size: 17px;
+  font-size: 20px;
   color: grey;
   transition: all 0.5s ease-in-out;
 

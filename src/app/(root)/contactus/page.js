@@ -191,6 +191,7 @@ const Heading = styled.h1`
 
 const SmallHeading = styled.p`
   font-size: 20px;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
@@ -232,7 +233,7 @@ const MainSection = styled.div`
     transparent
   );
   background-size: 200px 200px;
-  background-color: #fff;
+  background-color: white;
 `;
 
 const ContactForm = styled.form`
@@ -243,7 +244,7 @@ const ContactForm = styled.form`
   flex-direction: column;
   gap: 2rem;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 0.5s ease-in-out;

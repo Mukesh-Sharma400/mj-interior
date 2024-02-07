@@ -5,8 +5,8 @@ import { AboutUs } from "../sections/AboutUs";
 import { Gallery } from "../sections/Gallery";
 import { Counting } from "../sections/Counting";
 import { Services } from "../sections/Services";
-import { Testimonials } from "../sections/Testimonials";
 import BaseLayout from "../components/BaseLayout";
+import { Testimonials } from "../sections/Testimonials";
 
 export default function Home() {
   return (

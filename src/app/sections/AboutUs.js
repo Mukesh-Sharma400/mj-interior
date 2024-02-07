@@ -82,6 +82,7 @@ const RightSide = styled.div`
 
 const AboutUsHeading = styled.p`
   font-size: 20px;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
