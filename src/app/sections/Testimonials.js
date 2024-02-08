@@ -16,6 +16,41 @@ export const Testimonials = () => {
     pauseOnHover: true,
   };
 
+  const testimonialsData = [
+    {
+      workImage: interior,
+      message:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis digniss",
+      personImage: person,
+      personName: "Mukesh Sharma",
+      personDesc: "Web Developer",
+    },
+    {
+      workImage: interior,
+      message:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam temporibus quas accusantium laborum!",
+      personImage: person,
+      personName: "Mukesh Sharma",
+      personDesc: "Web Developer",
+    },
+    {
+      workImage: interior,
+      message:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia",
+      personImage: person,
+      personName: "Mukesh Sharma",
+      personDesc: "Web Developer",
+    },
+    {
+      workImage: interior,
+      message:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam temporibus quas accusantium laborum!",
+      personImage: person,
+      personName: "Mukesh Sharma",
+      personDesc: "Web Developer",
+    },
+  ];
+
   return (
     <DisplayWrapper>
       <Header>
@@ -28,83 +63,26 @@ export const Testimonials = () => {
         </Description>
       </Header>
       <MySlider {...settings}>
-        <MySlide>
-          <LeftSide>
-            <SlideImage src={interior} alt="interior" />
-          </LeftSide>
-          <RightSide>
-            <Message>
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
-              assumenda maiores officia cum laborum voluptate dicta numquam.
-              Voluptate nisi officiis digniss
-            </Message>
-            <PersonDetailsWrapper>
-              <PersonImage src={person} alt="person" />
-              <PersonDetails>
-                <PersonName>Mukesh Sharma</PersonName>
-                <PersonDesc>Web Developer</PersonDesc>
-              </PersonDetails>
-            </PersonDetailsWrapper>
-          </RightSide>
-        </MySlide>
-        <MySlide>
-          <LeftSide>
-            <SlideImage src={interior} alt="interior" />
-          </LeftSide>
-          <RightSide>
-            <Message>
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
-              assumenda maiores officia cum laborum voluptate dicta numquam.
-              Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam
-              temporibus quas accusantium laborum!"
-            </Message>
-            <PersonDetailsWrapper>
-              <PersonImage src={person} alt="person" />
-              <PersonDetails>
-                <PersonName>Mukesh Sharma</PersonName>
-                <PersonDesc>Web Developer</PersonDesc>
-              </PersonDetails>
-            </PersonDetailsWrapper>
-          </RightSide>
-        </MySlide>
-        <MySlide>
-          <LeftSide>
-            <SlideImage src={interior} alt="interior" />
-          </LeftSide>
-          <RightSide>
-            <Message>
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
-              assumenda maiores officia
-            </Message>
-            <PersonDetailsWrapper>
-              <PersonImage src={person} alt="person" />
-              <PersonDetails>
-                <PersonName>Mukesh Sharma</PersonName>
-                <PersonDesc>Web Developer</PersonDesc>
-              </PersonDetails>
-            </PersonDetailsWrapper>
-          </RightSide>
-        </MySlide>
-        <MySlide>
-          <LeftSide>
-            <SlideImage src={interior} alt="interior" />
-          </LeftSide>
-          <RightSide>
-            <Message>
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex
-              assumenda maiores officia cum laborum voluptate dicta numquam.
-              Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam
-              temporibus quas accusantium laborum!"
-            </Message>
-            <PersonDetailsWrapper>
-              <PersonImage src={person} alt="person" />
-              <PersonDetails>
-                <PersonName>Mukesh Sharma</PersonName>
-                <PersonDesc>Web Developer</PersonDesc>
-              </PersonDetails>
-            </PersonDetailsWrapper>
-          </RightSide>
-        </MySlide>
+        {testimonialsData.map((testimonial, index) => (
+          <MySlide key={index}>
+            <LeftSide>
+              <SlideImage src={testimonial.workImage} alt="Work Image" />
+            </LeftSide>
+            <RightSide>
+              <Message>{testimonial.message}</Message>
+              <PersonDetailsWrapper>
+                <PersonImage
+                  src={testimonial.personImage}
+                  alt={testimonial.personName}
+                />
+                <PersonDetails>
+                  <PersonName>{testimonial.personName}</PersonName>
+                  <PersonDesc>{testimonial.personDesc}</PersonDesc>
+                </PersonDetails>
+              </PersonDetailsWrapper>
+            </RightSide>
+          </MySlide>
+        ))}
       </MySlider>
     </DisplayWrapper>
   );

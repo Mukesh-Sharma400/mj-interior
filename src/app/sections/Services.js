@@ -30,6 +30,20 @@ export const Services = () => {
     ],
   };
 
+  const servicesData = [
+    { image: interior, title: "Interior Designing" },
+    { image: civilWork, title: "Civil Work" },
+    {
+      image: flooring,
+      title: "Tiling And Flooring",
+    },
+    { image: electrical, title: "Electrical Work" },
+    { image: fabrication, title: "Fabrication Work" },
+    { image: painting, title: "Painting Work" },
+    { image: popWork, title: "POP Work" },
+    { image: carpenters, title: "Carpenter Work" },
+  ];
+
   return (
     <DisplayWrapper>
       <Header>
@@ -42,54 +56,14 @@ export const Services = () => {
         </Description>
       </Header>
       <MySlider {...settings}>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={interior} alt="Interior Designing" />
-          </SlideImageWrapper>
-          <SlideTitle>Interior Designing</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={civilWork} alt="Civil Work" />
-          </SlideImageWrapper>
-          <SlideTitle>Civil Work</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={flooring} alt="Tiling And Flooring" />
-          </SlideImageWrapper>
-          <SlideTitle>Tiling And Flooring</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={electrical} alt="Electrical Work" />
-          </SlideImageWrapper>
-          <SlideTitle>Electrical Work</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={fabrication} alt="Fabrication Work" />
-          </SlideImageWrapper>
-          <SlideTitle>Fabrication Work</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={painting} alt="Painting Work" />
-          </SlideImageWrapper>
-          <SlideTitle>Painting Work</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={popWork} alt="POP Work" />
-          </SlideImageWrapper>
-          <SlideTitle>POP Work</SlideTitle>
-        </MySlide>
-        <MySlide>
-          <SlideImageWrapper>
-            <SlideImage src={carpenters} alt="Carpenter Work" />
-          </SlideImageWrapper>
-          <SlideTitle>Carpenter Work</SlideTitle>
-        </MySlide>
+        {servicesData.map((service, index) => (
+          <MySlide key={index}>
+            <SlideImageWrapper>
+              <SlideImage src={service.image} alt={service.title} />
+            </SlideImageWrapper>
+            <SlideTitle>{service.title}</SlideTitle>
+          </MySlide>
+        ))}
       </MySlider>
     </DisplayWrapper>
   );

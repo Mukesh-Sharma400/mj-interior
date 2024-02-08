@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styled from "styled-components";
+import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { Toast } from "@/app/components/Toast";
 import BaseLayout from "@/app/components/BaseLayout";
@@ -45,7 +46,48 @@ export default function ContactUs() {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    showToastMethod("Your message has been sent");
+    const isValid = form.current.reportValidity();
+    if (isValid) {
+      const nameInput = form.current.elements.from_name;
+      const emailInput = form.current.elements.from_email;
+      const phoneInput = form.current.elements.phone_number;
+      const messageInput = form.current.elements.message;
+      if (nameInput.value.length <= 5) {
+        showToastMethod("Please enter your full name");
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value)) {
+        showToastMethod("Please enter a valid email address");
+        return;
+      }
+      if (phoneInput.value.trim().length != 10) {
+        showToastMethod("Please enter a valid phone number");
+        return;
+      }
+      if (messageInput.value.trim().length <= 20) {
+        showToastMethod("Message should be more than 20 characters");
+        return;
+      }
+      emailjs
+        .sendForm(
+          "service_e4fjwoz",
+          "template_larht2h",
+          form.current,
+          "a185DCLwfO5fjx4m0"
+        )
+        .then(
+          (result) => {
+            showToastMethod("Message sent, Thank you for contacting!");
+            e.target.reset();
+          },
+          (error) => {
+            showToastMethod("Oops something went wrong");
+          }
+        );
+    } else {
+      showToastMethod("Please fill out all required fields correctly");
+    }
   };
 
   return (
@@ -65,21 +107,33 @@ export default function ContactUs() {
         <ContactForm ref={form} onSubmit={handleSendMessage}>
           <FieldContainer>
             <Label>Your Full Name</Label>
-            <TextBox placeholder="John Doe" />
+            <TextBox placeholder="John Doe" name="from_name" required />
           </FieldContainer>
           <EmailPhoneWrapper>
             <FieldContainer>
               <Label>Your Email</Label>
-              <TextBox placeholder="john.doe@example.com" />
+              <TextBox
+                placeholder="john.doe@example.com"
+                name="from_email"
+                required
+              />
             </FieldContainer>
             <FieldContainer>
               <Label>Your Phone Number</Label>
-              <TextBox placeholder="(+91) 555-555-5555" />
+              <TextBox
+                placeholder="(+91) 555-555-5555"
+                name="phone_number"
+                required
+              />
             </FieldContainer>
           </EmailPhoneWrapper>
           <FieldContainer>
             <Label>Your Message</Label>
-            <TextArea placeholder="Type your message here..." />
+            <TextArea
+              placeholder="Type your message here..."
+              name="message"
+              required
+            />
           </FieldContainer>
           <Button type="submit">
             <span className="transition"></span>
@@ -300,7 +354,7 @@ const TextBox = styled.input`
 
 const TextArea = styled.textarea`
   width: 100%;
-  height: 150px;
+  min-height: 150px;
   font-size: 20px;
   padding: 0.5rem 1rem;
   border-radius: 10px;

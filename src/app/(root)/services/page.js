@@ -6,6 +6,59 @@ import BaseLayout from "@/app/components/BaseLayout";
 import interior from "../../../../public/assets/interior-design.jpg";
 
 export default function Services() {
+  const servicesData = [
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+    {
+      image: interior,
+      name: "Interior Designing",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    },
+  ];
+
   return (
     <BaseLayout>
       <Header>
@@ -17,166 +70,22 @@ export default function Services() {
         </Description>
       </Header>
       <ServicesWrapper>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImageWrapper>
-            <ServiceImage
-              src={interior}
-              alt="Interior Designing"
-              width={400}
-              height={400}
-            />
-          </ServiceImageWrapper>
-          <ServiceDetails>
-            <ServiceName>Interior Designing</ServiceName>
-            <ServiceDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </ServiceDescription>
-          </ServiceDetails>
-        </ServiceCard>
+        {servicesData.map((service, index) => (
+          <ServiceCard key={index}>
+            <ServiceImageWrapper>
+              <ServiceImage
+                src={service.image}
+                alt={service.name}
+                width={400}
+                height={400}
+              />
+            </ServiceImageWrapper>
+            <ServiceDetails>
+              <ServiceName>{service.name}</ServiceName>
+              <ServiceDescription>{service.description}</ServiceDescription>
+            </ServiceDetails>
+          </ServiceCard>
+        ))}
       </ServicesWrapper>
     </BaseLayout>
   );

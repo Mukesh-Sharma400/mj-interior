@@ -53,7 +53,7 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
           About Us
         </Route>
         <Route
-          className={pathname === "/contact" && "active"}
+          className={pathname === "/contactus" && "active"}
           href="/contactus"
         >
           Contact Us
