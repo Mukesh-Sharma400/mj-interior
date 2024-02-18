@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import styled from "styled-components";
+import turnkey from "../../../public/assets/turnkey.jpg";
 import popWork from "../../../public/assets/pop-work.jpg";
 import painting from "../../../public/assets/painting.png";
 import civilWork from "../../../public/assets/civil-work.png";
 import electrical from "../../../public/assets/electrical.jpg";
 import carpenters from "../../../public/assets/carpenters.jpg";
+import modular from "../../../public/assets/modular-kitchen.jpg";
 import fabrication from "../../../public/assets/fabrication.jpg";
 import interior from "../../../public/assets/interior-design.jpg";
 import flooring from "../../../public/assets/tiling-flooring.jpg";
@@ -31,17 +33,46 @@ export const Services = () => {
   };
 
   const servicesData = [
-    { image: interior, title: "Interior Designing" },
-    { image: civilWork, title: "Civil Work" },
+    {
+      image: interior,
+      title: "Interior Designing",
+    },
+    {
+      image: civilWork,
+      title: "Civil Work",
+    },
     {
       image: flooring,
       title: "Tiling And Flooring",
     },
-    { image: electrical, title: "Electrical Work" },
-    { image: fabrication, title: "Fabrication Work" },
-    { image: painting, title: "Painting Work" },
-    { image: popWork, title: "POP Work" },
-    { image: carpenters, title: "Carpenter Work" },
+    {
+      image: electrical,
+      title: "Electrical Work",
+    },
+    {
+      image: fabrication,
+      title: "Fabrication Work",
+    },
+    {
+      image: painting,
+      title: "Painting Work",
+    },
+    {
+      image: popWork,
+      title: "POP Work",
+    },
+    {
+      image: carpenters,
+      title: "Carpenter Work",
+    },
+    {
+      image: modular,
+      title: "Modular Kitchen",
+    },
+    {
+      image: turnkey,
+      title: "Turnkey Contractor",
+    },
   ];
 
   return (

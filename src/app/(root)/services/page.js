@@ -3,59 +3,78 @@
 import Image from "next/image";
 import styled from "styled-components";
 import BaseLayout from "@/app/components/BaseLayout";
+import turnkey from "../../../../public/assets/turnkey.jpg";
+import popWork from "../../../../public/assets/pop-work.jpg";
+import painting from "../../../../public/assets/painting.png";
+import civilWork from "../../../../public/assets/civil-work.png";
+import electrical from "../../../../public/assets/electrical.jpg";
+import carpenters from "../../../../public/assets/carpenters.jpg";
+import modular from "../../../../public/assets/modular-kitchen.jpg";
+import fabrication from "../../../../public/assets/fabrication.jpg";
 import interior from "../../../../public/assets/interior-design.jpg";
+import flooring from "../../../../public/assets/tiling-flooring.jpg";
 
 export default function Services() {
   const servicesData = [
     {
       image: interior,
       name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      description:
+        "Transform your space with our expert interior designing services. From concept to completion, we'll bring your vision to life.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: civilWork,
+      name: "Civil Work",
+      description:
+        "From building foundations to structural frameworks, we ensure that every project is completed to the highest standards.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: flooring,
+      name: "Tiling And Flooring",
+      description:
+        "Enhance your space with our tiling and flooring solutions. Our experts will help you choose and install the perfect materials.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: electrical,
+      name: "Electrical Work",
+      description:
+        "Ensure the safety and functionality of your electrical systems with our professional services.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: fabrication,
+      name: "Fabrication Work",
+      description:
+        "Get custom metal parts or structural components with our fabrication work services, delivered on time and within budget.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: painting,
+      name: "Painting Work",
+      description:
+        "Refresh your walls or give your exterior a makeover with our professional painting services.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: popWork,
+      name: "POP Work",
+      description:
+        "Achieve stunning architectural details with our POP (Plaster of Paris) work services.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: carpenters,
+      name: "Carpenter Work",
+      description:
+        "From furniture making to cabinetry, our skilled carpenters will bring your woodworking projects to life.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: modular,
+      name: "Modular Kitchen",
+      description:
+        "Experience the convenience and functionality of a modular kitchen tailored to suit your lifestyle.",
     },
     {
-      image: interior,
-      name: "Interior Designing",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      image: turnkey,
+      name: "Turnkey Contractor",
+      description:
+        "Sit back and relax while we manage every aspect of your project as your turnkey contractor.",
     },
   ];
 
@@ -76,8 +95,8 @@ export default function Services() {
               <ServiceImage
                 src={service.image}
                 alt={service.name}
-                width={400}
-                height={400}
+                width={450}
+                height={450}
               />
             </ServiceImageWrapper>
             <ServiceDetails>
@@ -157,7 +176,7 @@ const ServiceImage = styled(Image)`
 `;
 
 const ServiceCard = styled.div`
-  width: 400px;
+  width: 450px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
