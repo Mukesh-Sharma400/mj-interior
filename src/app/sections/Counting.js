@@ -1,93 +1,40 @@
+import CountUp from "react-countup";
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
-
-const useCountingEffect = (targetCount, startCounting) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let currentCount = count;
-    const interval = setInterval(() => {
-      if (currentCount < targetCount && startCounting) {
-        currentCount += 1;
-        setCount(currentCount);
-      } else {
-        clearInterval(interval);
-      }
-    }, 100);
-    return () => clearInterval(interval);
-  }, [count, targetCount, startCounting]);
-  return count;
-};
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 export const Counting = () => {
-  const yearRef = useRef(null);
-  const projectRef = useRef(null);
-  const reviewRef = useRef(null);
-  const [startCounting, setStartCounting] = useState(false);
-
-  const handleIntersection = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setStartCounting(true);
-      }
-    });
-  };
+  const [isVisible, setIsVisible] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    };
-
-    const yearObserver = new IntersectionObserver(
-      handleIntersection,
-      observerOptions
-    );
-    const projectObserver = new IntersectionObserver(
-      handleIntersection,
-      observerOptions
-    );
-    const reviewObserver = new IntersectionObserver(
-      handleIntersection,
-      observerOptions
-    );
-
-    if (yearRef.current) {
-      yearObserver.observe(yearRef.current);
+    if (inView) {
+      setIsVisible(true);
     }
-    if (projectRef.current) {
-      projectObserver.observe(projectRef.current);
-    }
-    if (reviewRef.current) {
-      reviewObserver.observe(reviewRef.current);
-    }
-
-    return () => {
-      yearObserver.disconnect();
-      projectObserver.disconnect();
-      reviewObserver.disconnect();
-    };
-  }, []);
-
-  const yearCount = useCountingEffect(20, startCounting);
-  const projectCount = useCountingEffect(150, startCounting);
-  const reviewCount = useCountingEffect(100, startCounting);
+  }, [inView]);
 
   return (
-    <DisplayWrapper>
-      <ContentWrapper ref={yearRef}>
-        <Number>{yearCount}+</Number>
+    <DisplayWrapper ref={ref}>
+      <ContentWrapper>
+        <Number>
+          {isVisible ? <CountUp start={0} end={20} duration={5} /> : "0"}+
+        </Number>
         <Label>Years</Label>
       </ContentWrapper>
       <Divider />
-      <ContentWrapper ref={projectRef}>
-        <Number>{projectCount}+</Number>
+      <ContentWrapper>
+        <Number>
+          {isVisible ? <CountUp start={0} end={150} duration={5} /> : "0"}+
+        </Number>
         <Label>Projects</Label>
       </ContentWrapper>
       <Divider />
-      <ContentWrapper ref={reviewRef}>
-        <Number>{reviewCount}+</Number>
+      <ContentWrapper>
+        <Number>
+          {isVisible ? <CountUp start={0} end={100} duration={5} /> : "0"}+
+        </Number>
         <Label>Reviews</Label>
       </ContentWrapper>
     </DisplayWrapper>

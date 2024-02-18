@@ -332,6 +332,16 @@ const Label = styled.label`
   line-height: 18px;
   font-weight: 500;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
 `;
 
 const TextBox = styled.input`
@@ -342,6 +352,14 @@ const TextBox = styled.input`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
@@ -360,6 +378,14 @@ const TextArea = styled.textarea`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.5);
@@ -498,6 +524,13 @@ const IconWrapper = styled.div`
   font-size: 30px;
   color: #ab81e8;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 25px;
+  }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const IconText = styled.p`
@@ -510,6 +543,13 @@ const IconText = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+  }
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const PhoneEmailLocationContainer = styled.div`

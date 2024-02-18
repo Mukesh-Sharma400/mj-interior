@@ -137,6 +137,13 @@ const Route = styled(Link)`
   transition: all 0.5s ease-in-out;
   padding-bottom: 3px;
 
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
   &:hover {
     color: #23c3c4;
   }

@@ -1,28 +1,45 @@
 import Image from "next/image";
+import { useState } from "react";
 import styled from "styled-components";
+import { ContactNowPopup } from "../components/ContactNowPopup";
 import aboutus from "../../../public/assets/aboutus-section.jpg";
 
 export const AboutUs = () => {
+  const [showContactPopup, setShowContactPopup] = useState(false);
+
   return (
-    <DisplayWrapper>
-      <LeftSide>
-        <AboutUsImage src={aboutus} alt="About Us" />
-      </LeftSide>
-      <RightSide>
-        <AboutUsHeading>About Us</AboutUsHeading>
-        <Heading>The Combination of Modern & Simplicity</Heading>
-        <Description>
-          MJ Interior is a crew of creative interior designers who have the
-          ability to see the world through an aesthetic filter and transitioning
-          the domain into the versions of their perspective, filled with
-          captivating sights.
-        </Description>
-        <Button>
-          <span className="transition"></span>
-          <span className="label">Contact Now</span>
-        </Button>
-      </RightSide>
-    </DisplayWrapper>
+    <>
+      <DisplayWrapper>
+        <LeftSide>
+          <AboutUsImage src={aboutus} alt="About Us" />
+        </LeftSide>
+        <RightSide>
+          <AboutUsHeading>About Us</AboutUsHeading>
+          <Heading>The Combination of Modern & Simplicity</Heading>
+          <Description>
+            MJ Interior is a crew of creative interior designers who have the
+            ability to see the world through an aesthetic filter and
+            transitioning the domain into the versions of their perspective,
+            filled with captivating sights.
+          </Description>
+          <Button
+            onClick={() => {
+              setShowContactPopup(true);
+            }}
+          >
+            <span className="transition"></span>
+            <span className="label">Contact Now</span>
+          </Button>
+        </RightSide>
+      </DisplayWrapper>
+      {showContactPopup && (
+        <ContactNowPopup
+          handleClose={() => {
+            setShowContactPopup(false);
+          }}
+        />
+      )}
+    </>
   );
 };
 

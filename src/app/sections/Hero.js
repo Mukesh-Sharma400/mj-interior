@@ -131,6 +131,12 @@ const ContentWrapper = styled.div`
     max-width: 670px;
     left: 5%;
   }
+  @media (max-width: 768px) {
+    max-width: 600px;
+  }
+  @media (max-width: 426px) {
+    max-width: 90%;
+  }
 `;
 
 const Heading = styled.h1`
@@ -141,8 +147,11 @@ const Heading = styled.h1`
   @media (max-width: 1024px) {
     font-size: 45px;
   }
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
   @media (max-width: 426px) {
-    font-size: 35px;
+    font-size: 33px;
   }
   @media (max-width: 376px) {
     font-size: 30px;
@@ -159,6 +168,9 @@ const Description = styled.p`
 
   @media (max-width: 1024px) {
     font-size: 15px;
+  }
+  @media (max-width: 768px) {
+    font-size: 13px;
   }
   @media (max-width: 426px) {
     font-size: 12px;
@@ -206,7 +218,7 @@ const PrimaryButton = styled.button`
   }
 
   @media (max-width: 1024px) {
-    width: 140px;
+    width: 170px;
     height: 35px;
     font-size: 18px;
   }
@@ -257,7 +269,7 @@ const SecondaryButton = styled.button`
   }
 
   @media (max-width: 1024px) {
-    width: 140px;
+    width: 170px;
     height: 35px;
     font-size: 18px;
   }
