@@ -1,9 +1,45 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 import styled from "styled-components";
 import logo from "../../../public/assets/logo.png";
 
 export const Footer = () => {
+  useEffect(() => {
+    const tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
+      return new window.bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  }, []);
+
+  const sectionData = {
+    description:
+      "Established in 2016, Mj Interior has firmly positioned itself as a premier and esteemed provider of interior renovation services with a focus on construction and building in Ghansoli, Navi Mumbai.",
+  };
+
+  const socialLinks = [
+    {
+      className: "bi bi-facebook",
+      href: "https://www.facebook.com/MukeshSharma400",
+      tooltip: "Facebook",
+      ariaLabel: "Facebook",
+    },
+    {
+      className: "bi bi-instagram",
+      href: "https://www.instagram.com/mukesh_sharma400",
+      tooltip: "Instagram",
+      ariaLabel: "Instagram",
+    },
+    {
+      className: "bi bi-threads",
+      href: "https://www.threads.net/mukesh_sharma400",
+      tooltip: "Threads",
+      ariaLabel: "Threads",
+    },
+  ];
+
   const routesData = [
     { path: "/", label: "Home" },
     { path: "/services", label: "Services" },
@@ -30,11 +66,21 @@ export const Footer = () => {
       <ColumnsWrapper>
         <Column1>
           <Logo src={logo} alt="MJ Interior" />
-          <Description>
-            Established in 2016, Mj Interior has firmly positioned itself as a
-            premier and esteemed provider of interior renovation services with a
-            focus on construction and building in Ghansoli, Navi Mumbai.
-          </Description>
+          <Description>{sectionData.description}</Description>
+          <SocialLinksWrapper>
+            {socialLinks.map((link, index) => (
+              <SocialLink
+                key={index}
+                className={link.className}
+                href={link.href}
+                target="_blank"
+                data-bs-toggle="tooltip"
+                data-bs-title={link.tooltip}
+                data-bs-custom-class="custom-tooltip"
+                aria-label={link.ariaLabel}
+              ></SocialLink>
+            ))}
+          </SocialLinksWrapper>
         </Column1>
         <Column2>
           <SectionHeading>Pages</SectionHeading>
@@ -143,6 +189,32 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 13px;
+  }
+`;
+
+const SocialLinksWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.5s ease-in-out;
+`;
+
+const SocialLink = styled(Link)`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 50%;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    color: #23c3c4;
   }
 `;
 

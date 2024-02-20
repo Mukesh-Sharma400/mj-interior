@@ -26,6 +26,6 @@ textarea {
 }
 
 .custom-tooltip {
-  --bs-tooltip-bg: royalblue !important;
+  --bs-tooltip-bg: #9941fc !important;
   --bs-tooltip-color: white !important;
 }

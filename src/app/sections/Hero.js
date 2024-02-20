@@ -35,7 +35,7 @@ export const Hero = () => {
   const sectionData = {
     heading: "Transforming Dreams into Real Paradise",
     description:
-      " From Imagination to Blueprint: Where Your Vision Takes Shape. Welcome to MJ Interior, where we bring dreams to life with sophisticated style and meticulous design.",
+      "From Imagination to Blueprint: Where Your Vision Takes Shape. Welcome to MJ Interior, where we bring dreams to life with sophisticated style and meticulous design.",
   };
 
   return (
