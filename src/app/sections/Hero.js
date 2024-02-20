@@ -32,6 +32,12 @@ export const Hero = () => {
     showToastMethod("Email copied to clipboard");
   };
 
+  const sectionData = {
+    heading: "Transforming Dreams into Real Paradise",
+    description:
+      " From Imagination to Blueprint: Where Your Vision Takes Shape. Welcome to MJ Interior, where we bring dreams to life with sophisticated style and meticulous design.",
+  };
+
   return (
     <DisplayWrapper>
       <ToastWrapper showToast={toast.visible}>
@@ -42,12 +48,8 @@ export const Hero = () => {
         <Overlay />
       </BackgroundImageWrapper>
       <ContentWrapper>
-        <Heading>Transforming Dreams into Real Paradise</Heading>
-        <Description>
-          From Imagination to Blueprint: Where Your Vision Takes Shape. Welcome
-          to MJ Interior, where we bring dreams to life with sophisticated style
-          and meticulous design.
-        </Description>
+        <Heading>{sectionData.heading}</Heading>
+        <Description>{sectionData.description}</Description>
         <ButtonsWrapper>
           <PrimaryButton onClick={handleOpenDialer}>
             <span className="transition"></span>

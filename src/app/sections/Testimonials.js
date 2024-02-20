@@ -16,6 +16,13 @@ export const Testimonials = () => {
     pauseOnHover: true,
   };
 
+  const sectionData = {
+    smallHeading: "Testimonials",
+    heading: "What Our Clients Say About Us",
+    description:
+      "Explore firsthand the commendations of our craftsmanship. Tailoring services for every space and vision, our clients share their experiences of excellence.",
+  };
+
   const testimonialsData = [
     {
       workImage: interior,
@@ -54,13 +61,9 @@ export const Testimonials = () => {
   return (
     <DisplayWrapper>
       <Header>
-        <TestimonialsHeading>Testimonials</TestimonialsHeading>
-        <Heading>What Our Clients Say About Us</Heading>
-        <Description>
-          Explore firsthand the commendations of our craftsmanship. Tailoring
-          services for every space and vision, our clients share their
-          experiences of excellence.
-        </Description>
+        <TestimonialsHeading>{sectionData.smallHeading}</TestimonialsHeading>
+        <Heading>{sectionData.heading}</Heading>
+        <Description>{sectionData.description}</Description>
       </Header>
       <MySlider {...settings}>
         {testimonialsData.map((testimonial, index) => (

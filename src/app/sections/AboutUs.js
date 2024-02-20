@@ -7,6 +7,13 @@ import aboutus from "../../../public/assets/aboutus-section.jpg";
 export const AboutUs = () => {
   const [showContactPopup, setShowContactPopup] = useState(false);
 
+  const sectionData = {
+    smallHeading: "About Us",
+    heading: "The Combination of Modern & Simplicity",
+    description:
+      "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+  };
+
   return (
     <>
       <DisplayWrapper>
@@ -14,14 +21,9 @@ export const AboutUs = () => {
           <AboutUsImage src={aboutus} alt="About Us" />
         </LeftSide>
         <RightSide>
-          <AboutUsHeading>About Us</AboutUsHeading>
-          <Heading>The Combination of Modern & Simplicity</Heading>
-          <Description>
-            MJ Interior is a crew of creative interior designers who have the
-            ability to see the world through an aesthetic filter and
-            transitioning the domain into the versions of their perspective,
-            filled with captivating sights.
-          </Description>
+          <AboutUsHeading>{sectionData.smallHeading}</AboutUsHeading>
+          <Heading>{sectionData.heading}</Heading>
+          <Description>{sectionData.description}</Description>
           <Button
             onClick={() => {
               setShowContactPopup(true);

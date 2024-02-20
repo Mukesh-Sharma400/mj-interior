@@ -4,6 +4,27 @@ import styled from "styled-components";
 import logo from "../../../public/assets/logo.png";
 
 export const Footer = () => {
+  const routesData = [
+    { path: "/", label: "Home" },
+    { path: "/services", label: "Services" },
+    { path: "/projects", label: "Projects" },
+    { path: "/aboutus", label: "About Us" },
+    { path: "/contactus", label: "Contact Us" },
+  ];
+
+  const servicesData = [
+    "Interior Designing",
+    "Civil Work",
+    "Tiling And Flooring",
+    "Electrical Work",
+    "Fabrication Work",
+    "Painting Work",
+    "POP Work",
+    "Carpenter Work",
+    "Modular Kitchen",
+    "Turnkey Contractor",
+  ];
+
   return (
     <DisplayWrapper>
       <ColumnsWrapper>
@@ -18,46 +39,21 @@ export const Footer = () => {
         <Column2>
           <SectionHeading>Pages</SectionHeading>
           <PagesWrapper>
-            <Page href="/">Home</Page>
-            <Page href="/services">Services</Page>
-            <Page href="/projects">Projects</Page>
-            <Page href="/aboutus">About Us</Page>
-            <Page href="/contactus">Contact Us</Page>
+            {routesData.map((page) => (
+              <Page key={page.path} href={page.path}>
+                {page.label}
+              </Page>
+            ))}
           </PagesWrapper>
         </Column2>
         <Column3>
           <SectionHeading>Services</SectionHeading>
           <ServicesWrapper>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Interior Designing
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Civil Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Tiling And Flooring
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Electrical Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Fabrication Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Painting Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> POP Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Carpenter Work
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Modular Kitchen
-            </Service>
-            <Service>
-              <i class="bi bi-check2-circle"></i> Turnkey Contractor
-            </Service>
+            {servicesData.map((service, index) => (
+              <Service key={index}>
+                <i className="bi bi-check2-circle"></i> {service}
+              </Service>
+            ))}
           </ServicesWrapper>
         </Column3>
       </ColumnsWrapper>

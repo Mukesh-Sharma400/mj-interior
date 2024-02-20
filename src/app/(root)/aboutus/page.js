@@ -4,16 +4,17 @@ import styled from "styled-components";
 import BaseLayout from "@/app/components/BaseLayout";
 
 export default function AboutUs() {
+  const pageHeader = {
+    heading: "About Us",
+    description:
+      "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+  };
+
   return (
     <BaseLayout>
       <Header>
-        <Heading>About Us</Heading>
-        <Description>
-          MJ Interior is a crew of creative interior designers who have the
-          ability to see the world through an aesthetic filter and transitioning
-          the domain into the versions of their perspective, filled with
-          captivating sights.
-        </Description>
+        <Heading>{pageHeader.heading}</Heading>
+        <Description>{pageHeader.description}</Description>
       </Header>
     </BaseLayout>
   );

@@ -26,51 +26,30 @@ export const Header = () => {
     setSideMenuOpened(!sideMenuOpened);
   };
 
+  const routesData = [
+    { path: "/", label: "Home" },
+    { path: "/services", label: "Services" },
+    { path: "/projects", label: "Projects" },
+    { path: "/aboutus", label: "About Us" },
+    { path: "/contactus", label: "Contact Us" },
+  ];
+
   return (
     <>
       <DisplayWrapper scrolled={scrolled}>
         <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
         <RoutesWrapper scrolled={scrolled}>
-          <Route
-            className={pathname === "/" && "active"}
-            href="/"
-            scrolled={scrolled}
-            pathname={pathname}
-          >
-            Home
-          </Route>
-          <Route
-            className={pathname === "/services" && "active"}
-            href="/services"
-            scrolled={scrolled}
-            pathname={pathname}
-          >
-            Services
-          </Route>
-          <Route
-            className={pathname === "/projects" && "active"}
-            href="/projects"
-            scrolled={scrolled}
-            pathname={pathname}
-          >
-            Projects
-          </Route>
-          <Route
-            className={pathname === "/aboutus" && "active"}
-            href="/aboutus"
-            scrolled={scrolled}
-            pathname={pathname}
-          >
-            About Us
-          </Route>
-          <Route
-            className={pathname === "/contactus" && "active"}
-            href="/contactus"
-            scrolled={scrolled}
-            pathname={pathname}
-          >
-            Contact Us
-          </Route>
+          {routesData.map((route) => (
+            <Route
+              key={route.path}
+              className={pathname === route.path ? "active" : ""}
+              href={route.path}
+              scrolled={scrolled}
+              pathname={pathname}
+            >
+              {route.label}
+            </Route>
+          ))}
         </RoutesWrapper>
         <Button onClick={handleSideMenu} sideMenuOpened={sideMenuOpened}>
           <div className="bar bar--1"></div>

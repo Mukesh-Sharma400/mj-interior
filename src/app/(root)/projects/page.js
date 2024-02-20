@@ -4,15 +4,17 @@ import styled from "styled-components";
 import BaseLayout from "@/app/components/BaseLayout";
 
 export default function Projects() {
+  const pageHeader = {
+    heading: "Projects",
+    description:
+      "Explore a collection of our recent projects, each telling a unique story of creativity and craftsmanship. Immerse yourself in our visual showcase of innovation.",
+  };
+
   return (
     <BaseLayout>
       <Header>
-        <Heading>Projects</Heading>
-        <Description>
-          Explore a collection of our recent projects, each telling a unique
-          story of creativity and craftsmanship. Immerse yourself in our visual
-          showcase of innovation.
-        </Description>
+        <Heading>{pageHeader.heading}</Heading>
+        <Description>{pageHeader.description}</Description>
       </Header>
     </BaseLayout>
   );

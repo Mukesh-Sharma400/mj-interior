@@ -90,6 +90,23 @@ export default function ContactUs() {
     }
   };
 
+  const pageHeader = {
+    heading: "Contact Us",
+    description:
+      "For personalized interior design solutions, contact our expert team. We transform spaces to reflect your style. Schedule a consultation to bring your vision to life.",
+  };
+
+  const officeSectionHeader = {
+    heading: "Come Visit Us",
+    description: "Welcome to our office",
+  };
+
+  const officeSectionData = {
+    heading: "Head Office",
+    description:
+      "Step into our main office and embark on a journey of personalized interior design solutions! Come visit us and let's reimagine your surroundings together!",
+  };
+
   return (
     <BaseLayout>
       <ToastWrapper showToast={toast.visible}>
@@ -97,12 +114,8 @@ export default function ContactUs() {
       </ToastWrapper>
       <MainSection>
         <Header>
-          <Heading>Contact Us</Heading>
-          <Description>
-            For personalized interior design solutions, contact our expert team.
-            We transform spaces to reflect your style. Schedule a consultation
-            to bring your vision to life.
-          </Description>
+          <Heading>{pageHeader.heading}</Heading>
+          <Description>{pageHeader.description}</Description>
         </Header>
         <ContactForm ref={form} onSubmit={handleSendMessage}>
           <FieldContainer>
@@ -142,20 +155,16 @@ export default function ContactUs() {
         </ContactForm>
       </MainSection>
       <SmallHeader>
-        <SmallHeading>Come Visit Us</SmallHeading>
-        <Heading>Welcome to our office</Heading>
+        <SmallHeading>{officeSectionHeader.heading}</SmallHeading>
+        <Heading>{officeSectionHeader.description}</Heading>
       </SmallHeader>
       <VisitUsWrapper>
         <LeftSide>
           <AboutUsImage src={aboutus} alt="About Us" />
         </LeftSide>
         <RightSide>
-          <LightHeading>Head Office</LightHeading>
-          <Description>
-            Step into our main office and embark on a journey of personalized
-            interior design solutions! Come visit us and let's reimagine your
-            surroundings together!
-          </Description>
+          <LightHeading>{officeSectionData.heading}</LightHeading>
+          <Description>{officeSectionData.description}</Description>
           <PhoneEmailLocationWrapper>
             <PhoneEmailLocationContainer onClick={handleOpenDialer}>
               <IconWrapper>
@@ -167,17 +176,13 @@ export default function ContactUs() {
               <IconWrapper>
                 <i class="bi bi-envelope-fill"></i>
               </IconWrapper>
-              <IconText>mjinterior@gmail.com</IconText>
+              <IconText>{emailAddress}</IconText>
             </PhoneEmailLocationContainer>
             <PhoneEmailLocationContainer onClick={handleOpenMap}>
               <IconWrapper>
                 <i class="bi bi-geo-alt-fill"></i>
               </IconWrapper>
-              <IconText>
-                Mj Interior, Plot No. 65, Ground Floor, Sector-5, Opp. Tilak
-                International Collage. Near Rly. Station, Ghansoli, Navi
-                Mumbai-400 701
-              </IconText>
+              <IconText>{officeAddress}</IconText>
             </PhoneEmailLocationContainer>
           </PhoneEmailLocationWrapper>
         </RightSide>

@@ -3,16 +3,19 @@ import styled from "styled-components";
 import interior from "../../../public/assets/interior-design.jpg";
 
 export const Gallery = () => {
+  const sectionData = {
+    smallHeading: "Gallery",
+    heading: "Take a Look at Our Recent Projects",
+    description:
+      "Explore a collection of our recent projects, each telling a unique story of creativity and craftsmanship. Immerse yourself in our visual showcase of innovation.",
+  };
+
   return (
     <DisplayWrapper>
       <Header>
-        <GalleryHeading>Gallery</GalleryHeading>
-        <Heading>Take a Look at Our Recent Projects</Heading>
-        <Description>
-          Explore a collection of our recent projects, each telling a unique
-          story of creativity and craftsmanship. Immerse yourself in our visual
-          showcase of innovation.
-        </Description>
+        <GalleryHeading>{sectionData.smallHeading}</GalleryHeading>
+        <Heading>{sectionData.heading}</Heading>
+        <Description>{sectionData.description}</Description>
       </Header>
       <GalleryWrapper>
         <div className="Column1">

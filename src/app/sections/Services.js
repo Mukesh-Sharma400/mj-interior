@@ -32,6 +32,13 @@ export const Services = () => {
     ],
   };
 
+  const sectionData = {
+    smallHeading: "Services",
+    heading: "Our Best Services",
+    description:
+      "Dive into the realm of excellence with our tailored services, meticulously crafted for every space and vision. Discover the unparalleled quality of our offerings.",
+  };
+
   const servicesData = [
     {
       image: interior,
@@ -78,13 +85,9 @@ export const Services = () => {
   return (
     <DisplayWrapper>
       <Header>
-        <ServicesHeading>Services</ServicesHeading>
-        <Heading>Our Best Services</Heading>
-        <Description>
-          Dive into the realm of excellence with our tailored services,
-          meticulously crafted for every space and vision. Discover the
-          unparalleled quality of our offerings.
-        </Description>
+        <ServicesHeading>{sectionData.smallHeading}</ServicesHeading>
+        <Heading>{sectionData.heading}</Heading>
+        <Description>{sectionData.description}</Description>
       </Header>
       <MySlider {...settings}>
         {servicesData.map((service, index) => (

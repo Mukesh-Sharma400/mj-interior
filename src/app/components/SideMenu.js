@@ -31,33 +31,26 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
     };
   }, [sideMenuOpened]);
 
+  const routesData = [
+    { path: "/", label: "Home" },
+    { path: "/services", label: "Services" },
+    { path: "/projects", label: "Projects" },
+    { path: "/aboutus", label: "About Us" },
+    { path: "/contactus", label: "Contact Us" },
+  ];
+
   return (
     <DisplayWrapper ref={sideMenuRef} sideMenuOpened={sideMenuOpened}>
       <RoutesWrapper>
-        <Route className={pathname === "/" && "active"} href="/">
-          Home
-        </Route>
-        <Route
-          className={pathname === "/services" && "active"}
-          href="/services"
-        >
-          Services
-        </Route>
-        <Route
-          className={pathname === "/projects" && "active"}
-          href="/projects"
-        >
-          Projects
-        </Route>
-        <Route className={pathname === "/aboutus" && "active"} href="/aboutus">
-          About Us
-        </Route>
-        <Route
-          className={pathname === "/contactus" && "active"}
-          href="/contactus"
-        >
-          Contact Us
-        </Route>
+        {routesData.map((route) => (
+          <Route
+            key={route.path}
+            className={pathname === route.path && "active"}
+            href={route.path}
+          >
+            {route.label}
+          </Route>
+        ))}
       </RoutesWrapper>
     </DisplayWrapper>
   );

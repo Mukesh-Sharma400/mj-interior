@@ -15,6 +15,12 @@ import interior from "../../../../public/assets/interior-design.jpg";
 import flooring from "../../../../public/assets/tiling-flooring.jpg";
 
 export default function Services() {
+  const pageHeader = {
+    heading: "Services",
+    description:
+      "Dive into the realm of excellence with our tailored services, meticulously crafted for every space and vision. Discover the unparalleled quality of our offerings.",
+  };
+
   const servicesData = [
     {
       image: interior,
@@ -81,12 +87,8 @@ export default function Services() {
   return (
     <BaseLayout>
       <Header>
-        <Heading>Services</Heading>
-        <Description>
-          Dive into the realm of excellence with our tailored services,
-          meticulously crafted for every space and vision. Discover the
-          unparalleled quality of our offerings.
-        </Description>
+        <Heading>{pageHeader.heading}</Heading>
+        <Description>{pageHeader.description}</Description>
       </Header>
       <ServicesWrapper>
         {servicesData.map((service, index) => (

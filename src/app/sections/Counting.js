@@ -15,25 +15,42 @@ export const Counting = () => {
     }
   }, [inView]);
 
+  const sectionData = { years: 20, projects: 150, reviews: 100 };
+
   return (
     <DisplayWrapper ref={ref}>
       <ContentWrapper>
         <Number>
-          {isVisible ? <CountUp start={0} end={20} duration={5} /> : "0"}+
+          {isVisible ? (
+            <CountUp start={0} end={sectionData.years} duration={5} />
+          ) : (
+            "0"
+          )}
+          +
         </Number>
         <Label>Years</Label>
       </ContentWrapper>
       <Divider />
       <ContentWrapper>
         <Number>
-          {isVisible ? <CountUp start={0} end={150} duration={5} /> : "0"}+
+          {isVisible ? (
+            <CountUp start={0} end={sectionData.projects} duration={5} />
+          ) : (
+            "0"
+          )}
+          +
         </Number>
         <Label>Projects</Label>
       </ContentWrapper>
       <Divider />
       <ContentWrapper>
         <Number>
-          {isVisible ? <CountUp start={0} end={100} duration={5} /> : "0"}+
+          {isVisible ? (
+            <CountUp start={0} end={sectionData.reviews} duration={5} />
+          ) : (
+            "0"
+          )}
+          +
         </Number>
         <Label>Reviews</Label>
       </ContentWrapper>
