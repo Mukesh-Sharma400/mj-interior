@@ -16,25 +16,25 @@ export const Footer = () => {
 
   const sectionData = {
     description:
-      "Established in 2016, Mj Interior has firmly positioned itself as a premier and esteemed provider of interior renovation services with a focus on construction and building in Ghansoli, Navi Mumbai.",
+      "Established in 2016, MJ Interior has firmly established itself as a leading and esteemed provider of interior renovation services, specializing in construction and building in Ghansoli, Navi Mumbai and more.",
   };
 
   const socialLinks = [
     {
       className: "bi bi-facebook",
-      href: "https://www.facebook.com/MukeshSharma400",
+      href: "https://www.facebook.com/profile.php?id=61556937652865&sfnsn=wiwspwa&mibextid=RUbZ1f",
       tooltip: "Facebook",
       ariaLabel: "Facebook",
     },
     {
       className: "bi bi-instagram",
-      href: "https://www.instagram.com/mukesh_sharma400",
+      href: "https://www.instagram.com/_mjinteriors",
       tooltip: "Instagram",
       ariaLabel: "Instagram",
     },
     {
       className: "bi bi-threads",
-      href: "https://www.threads.net/mukesh_sharma400",
+      href: "https://www.threads.net/@_mjinteriors",
       tooltip: "Threads",
       ariaLabel: "Threads",
     },

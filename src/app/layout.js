@@ -8,20 +8,20 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata = {
   title: "MJ Interior",
   description:
-    "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
   keywords:
     "interior design, creative spaces, home decor, aesthetic designs, innovative interiors",
   author: "Mukesh Sharma",
   image: "./icon.png",
-  url: "https://mj-interior.vercel.app",
+  url: "https://mjinterior.co.in",
   type: "website",
   ogTitle: "MJ Interior",
   ogDescription:
-    "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
   ogImage: "./icon.png",
   twitterTitle: "MJ Interior",
   twitterDescription:
-    "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
   twitterImage: "./icon.png",
 };
 

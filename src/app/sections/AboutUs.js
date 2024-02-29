@@ -11,7 +11,7 @@ export const AboutUs = () => {
     smallHeading: "About Us",
     heading: "The Combination of Modern & Simplicity",
     description:
-      "MJ Interior is a crew of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+      "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
   };
 
   return (
