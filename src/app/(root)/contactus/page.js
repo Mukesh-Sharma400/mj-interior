@@ -12,7 +12,7 @@ export default function ContactUs() {
   const form = useRef();
   const timeoutRef = useRef(null);
   const phoneNumber = "+918097775115";
-  const emailAddress = "mjinterior@gmail.com";
+  const emailAddress = "mjinteriors2007@gmail.com";
   const officeAddress =
     "Mj Interior, Plot No. 65, Ground Floor, Sector-5, Opp. Tilak International Collage. Near Rly. Station, Ghansoli, Navi Mumbai-400 701";
   const [toast, setToast] = useState({ visible: false, message: "" });
@@ -71,10 +71,10 @@ export default function ContactUs() {
       }
       emailjs
         .sendForm(
-          "service_e4fjwoz",
-          "template_larht2h",
+          "service_ras8q59",
+          "template_awt5flq",
           form.current,
-          "a185DCLwfO5fjx4m0"
+          "G2jRmj0pDyOsthWG0"
         )
         .then(
           (result) => {

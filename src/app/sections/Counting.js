@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 export const Counting = () => {
+  const currentYear = new Date().getFullYear();
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -15,7 +16,7 @@ export const Counting = () => {
     }
   }, [inView]);
 
-  const sectionData = { years: 20, projects: 150, reviews: 100 };
+  const sectionData = { years: currentYear - 2007, projects: 150, reviews: 50 };
 
   return (
     <DisplayWrapper ref={ref}>

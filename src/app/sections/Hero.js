@@ -8,7 +8,7 @@ import backgroundImage from "../../../public/assets/hero-background.jpg";
 export const Hero = () => {
   const timeoutRef = useRef(null);
   const phoneNumber = "+918097775115";
-  const emailAddress = "mjinterior@gmail.com";
+  const emailAddress = "mjinteriors2007@gmail.com";
   const [toast, setToast] = useState({ visible: false, message: "" });
 
   const showToastMethod = (message) => {
