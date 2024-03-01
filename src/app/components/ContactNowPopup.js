@@ -268,6 +268,7 @@ const EmailPhoneWrapper = styled.div`
 
   @media (max-width: 426px) {
     flex-direction: column;
+    gap: 1rem;
   }
 `;
 
