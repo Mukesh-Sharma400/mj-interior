@@ -16,7 +16,7 @@ export const Counting = () => {
     }
   }, [inView]);
 
-  const sectionData = { years: currentYear - 2007, projects: 150, reviews: 50 };
+  const sectionData = { years: currentYear - 2007, projects: 100, reviews: 30 };
 
   return (
     <DisplayWrapper ref={ref}>
