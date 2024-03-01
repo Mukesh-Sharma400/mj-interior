@@ -1,21 +1,13 @@
 import Image from "next/image";
-import Slider from "react-slick";
 import styled from "styled-components";
 import person from "../../../public/assets/person.png";
-import interior from "../../../public/assets/interior-design.jpg";
+import mukeshSharma from "../../../public/assets/mukesh-sharma.png";
+import yuvrajVirkar from "../../../public/assets/yuvraj-virkar.png";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import yogeshPanchal from "../../../public/assets/yogesh-panchal.png";
+import siddheshGhadigaonkar from "../../../public/assets/siddhesh-ghadigaonkar.png";
 
 export const Testimonials = () => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    pauseOnHover: true,
-  };
-
   const sectionData = {
     smallHeading: "Testimonials",
     heading: "What Our Clients Say About Us",
@@ -25,38 +17,73 @@ export const Testimonials = () => {
 
   const testimonialsData = [
     {
-      workImage: interior,
       message:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis digniss",
-      personImage: person,
-      personName: "Mukesh Sharma",
-      personDesc: "Web Developer",
+        "Completed work on time and within the budget. Kuwar bhai is good person to interact with. They understood the requirements and also gave their suggestions. You can trust them and can take service from them.",
+      name: "Siddhesh Ghadigaonkar",
+      image: siddheshGhadigaonkar,
+      rating: 5,
     },
     {
-      workImage: interior,
       message:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam temporibus quas accusantium laborum!",
-      personImage: person,
-      personName: "Mukesh Sharma",
-      personDesc: "Web Developer",
+        "I Have Hired MJ Interiors for my sister's House Work, I Would like to recommend For any work. The Special Thing is the Friendly Behaviour Of Kuberji, And The Timely Work Handover. They Also Have The Labours who are very skilled. Would Like to Recommend Everyone For Making There Home Like They Want.",
+      name: "Yuvraj Virkar",
+      image: yuvrajVirkar,
+      rating: 5,
     },
     {
-      workImage: interior,
       message:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia",
-      personImage: person,
-      personName: "Mukesh Sharma",
-      personDesc: "Web Developer",
+        "We had Good experience in with MJ interior. Our House interior design was done by MJ Interior and the most notable point is that the perfection they giving in the design and its execution. Would Recommend MJ interior for Anyone.",
+      name: "Salman Khan",
+      image: person,
+      rating: 5,
     },
     {
-      workImage: interior,
       message:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam ex assumenda maiores officia cum laborum voluptate dicta numquam. Voluptate nisi officiis dignissimos, aspernatur fuga error aperiam temporibus quas accusantium laborum!",
-      personImage: person,
-      personName: "Mukesh Sharma",
-      personDesc: "Web Developer",
+        "Done my kitchen work very nicely experience and co operative team along with kuber ji would prefer mj interiors for further work.",
+      name: "Dayar Yadav",
+      image: person,
+      rating: 5,
+    },
+    {
+      message:
+        "Very nice peoples and prompt service Rates are also very reasonable. Best of luck.",
+      name: "Yogesh Panchal",
+      image: yogeshPanchal,
+      rating: 5,
+    },
+    {
+      message:
+        "Amazing transformation! The attention to detail and creative vision have made my space truly exceptional. I couldn't be happier with the results.",
+      name: "Mukesh Sharma",
+      image: mukeshSharma,
+      rating: 5,
+    },
+    {
+      message: "Good professional and on time service. 10/10 would recommend.",
+      name: "Santosh Sharma",
+      image: person,
+      rating: 5,
+    },
+    {
+      message:
+        "Project delivered on time with exactly how I wanted. Very Good Experience..!",
+      name: "Vikas Sharma",
+      image: person,
+      rating: 5,
     },
   ];
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<i key={i} className="bi bi-star-fill"></i>);
+      } else {
+        stars.push(<i key={i} className="bi bi-star"></i>);
+      }
+    }
+    return stars;
+  };
 
   return (
     <DisplayWrapper>
@@ -65,28 +92,32 @@ export const Testimonials = () => {
         <Heading>{sectionData.heading}</Heading>
         <Description>{sectionData.description}</Description>
       </Header>
-      <MySlider {...settings}>
-        {testimonialsData.map((testimonial, index) => (
-          <MySlide key={index}>
-            <LeftSide>
-              <SlideImage src={testimonial.workImage} alt="Work Image" />
-            </LeftSide>
-            <RightSide>
-              <Message>{testimonial.message}</Message>
-              <PersonDetailsWrapper>
-                <PersonImage
-                  src={testimonial.personImage}
-                  alt={testimonial.personName}
-                />
-                <PersonDetails>
-                  <PersonName>{testimonial.personName}</PersonName>
-                  <PersonDesc>{testimonial.personDesc}</PersonDesc>
-                </PersonDetails>
-              </PersonDetailsWrapper>
-            </RightSide>
-          </MySlide>
-        ))}
-      </MySlider>
+      <TestimonialsWrapper>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 700: 2, 1024: 3 }}
+        >
+          <Masonry gutter="16px">
+            {testimonialsData.map((testimonial, index) => (
+              <Testimonial key={index}>
+                <Message>{testimonial.message}</Message>
+                <PicNameWrapper>
+                  <Image
+                    className="rounded-circle"
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={50}
+                    height={50}
+                  />
+                  <div>
+                    <Name>{testimonial.name}</Name>
+                    <Ratings>{renderStars(testimonial.rating)}</Ratings>
+                  </div>
+                </PicNameWrapper>
+              </Testimonial>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      </TestimonialsWrapper>
     </DisplayWrapper>
   );
 };
@@ -149,118 +180,54 @@ const Description = styled.p`
   }
 `;
 
-const MySlider = styled(Slider)`
+const TestimonialsWrapper = styled.div`
   width: 90%;
-  margin: 0 auto;
-  transition: all 0.5s ease-in-out;
-`;
-
-const MySlide = styled.div`
-  width: 100%;
-  display: flex !important;
-  gap: 50px;
-  padding: 0 10px;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 426px) {
-    flex-direction: column;
-  }
-`;
-
-const LeftSide = styled.div`
-  width: 50%;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 426px) {
-    width: 100%;
-  }
-`;
-
-const SlideImage = styled(Image)`
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 426px) {
-    height: 300px;
-  }
-  @media (max-width: 376px) {
-    height: 250px;
-  }
-`;
-
-const RightSide = styled.div`
-  width: 50%;
-  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 16px;
+  margin: 0px auto;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 426px) {
-    width: 100%;
-  }
 `;
 
-const Message = styled.p`
-  font-size: 24px;
-  letter-spacing: 1px;
+const Testimonial = styled.div`
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.5s ease-in-out;
+`;
+
+const Message = styled.div`
+  font-size: 14px;
+  line-height: 20px;
   font-style: italic;
+  letter-spacing: 1px;
   color: black;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
 `;
 
-const PersonDetailsWrapper = styled.div`
+const PicNameWrapper = styled.div`
+  width: 100%;
   display: flex;
+  align-items: center;
   gap: 20px;
+  margin-top: 20px !important;
   transition: all 0.5s ease-in-out;
 `;
 
-const PersonImage = styled(Image)`
-  width: 80px;
-  height: 80px;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    width: 70px;
-    height: 70px;
-  }
-`;
-
-const PersonDetails = styled.div`
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    height: 70px;
-  }
-`;
-
-const PersonName = styled.p`
-  font-size: 25px;
-  font-weight: 600;
+const Name = styled.p`
+  font-size: 14px;
   color: black;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
 `;
 
-const PersonDesc = styled.p`
-  font-size: 20px;
-  color: grey;
+const Ratings = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #fbbc04;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-  }
 `;
