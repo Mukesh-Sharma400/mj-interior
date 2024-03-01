@@ -45,10 +45,10 @@ export const ContactNowPopup = ({ handleClose }) => {
       }
       emailjs
         .sendForm(
-          "service_e4fjwoz",
-          "template_larht2h",
+          "service_ras8q59",
+          "template_awt5flq",
           form.current,
-          "a185DCLwfO5fjx4m0"
+          "G2jRmj0pDyOsthWG0"
         )
         .then(
           (result) => {
@@ -150,6 +150,10 @@ const PopupContainer = styled.div`
   box-shadow: 0 4px 15px rgba(225, 225, 225, 0.5);
   background-color: white;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 426px) {
+    width: 90%;
+  }
 `;
 
 const CloseBtn = styled.div`
@@ -163,6 +167,7 @@ const CloseBtn = styled.div`
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 `;
 
 const ContactForm = styled.form`
@@ -171,6 +176,11 @@ const ContactForm = styled.form`
   gap: 1rem;
   overflow-y: scroll;
   position: relative;
+  transition: all 0.5s ease-in-out;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const FieldContainer = styled.div`
