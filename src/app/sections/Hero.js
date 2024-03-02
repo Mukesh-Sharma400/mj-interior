@@ -48,9 +48,11 @@ export const Hero = () => {
         <Overlay />
       </BackgroundImageWrapper>
       <ContentWrapper>
-        <Heading>{sectionData.heading}</Heading>
-        <Description>{sectionData.description}</Description>
-        <ButtonsWrapper>
+        <Heading data-aos="fade-right">{sectionData.heading}</Heading>
+        <Description data-aos="fade-right">
+          {sectionData.description}
+        </Description>
+        <ButtonsWrapper data-aos="fade-right">
           <PrimaryButton onClick={handleOpenDialer}>
             <span className="transition"></span>
             <span className="label">
@@ -116,7 +118,7 @@ const Overlay = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 870px;
+  max-width: 950px;
   position: absolute;
   top: 50%;
   left: 10%;
@@ -130,19 +132,13 @@ const ContentWrapper = styled.div`
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
-    max-width: 670px;
-    left: 5%;
-  }
-  @media (max-width: 768px) {
-    max-width: 600px;
-  }
-  @media (max-width: 426px) {
     max-width: 90%;
+    left: 5%;
   }
 `;
 
 const Heading = styled.h1`
-  font-size: 60px;
+  font-size: 45px;
   color: white;
   transition: all 0.5s ease-in-out;
 
@@ -164,7 +160,7 @@ const Heading = styled.h1`
 `;
 
 const Description = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   transition: all 0.5s ease-in-out;
 

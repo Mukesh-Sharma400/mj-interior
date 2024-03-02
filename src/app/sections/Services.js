@@ -84,7 +84,7 @@ export const Services = () => {
 
   return (
     <DisplayWrapper>
-      <Header>
+      <Header data-aos="fade-up">
         <ServicesHeading>{sectionData.smallHeading}</ServicesHeading>
         <Heading>{sectionData.heading}</Heading>
         <Description>{sectionData.description}</Description>

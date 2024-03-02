@@ -12,26 +12,26 @@ export const Gallery = () => {
 
   return (
     <DisplayWrapper>
-      <Header>
+      <Header data-aos="fade-up">
         <GalleryHeading>{sectionData.smallHeading}</GalleryHeading>
         <Heading>{sectionData.heading}</Heading>
         <Description>{sectionData.description}</Description>
       </Header>
       <GalleryWrapper>
         <div className="Column1">
-          <StyledImage src={interior} alt="interior" />
+          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
         </div>
         <div className="Column21">
-          <StyledImage src={interior} alt="interior" />
+          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
         </div>
         <div className="Column22">
-          <StyledImage src={interior} alt="interior" />
+          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
         </div>
         <div className="Column31">
-          <StyledImage src={interior} alt="interior" />
+          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
         </div>
         <div className="Column32">
-          <StyledImage src={interior} alt="interior" />
+          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
         </div>
       </GalleryWrapper>
     </DisplayWrapper>

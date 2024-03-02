@@ -20,7 +20,7 @@ export const AboutUs = () => {
         <LeftSide>
           <AboutUsImage src={aboutus} alt="About Us" />
         </LeftSide>
-        <RightSide>
+        <RightSide data-aos="fade-right">
           <AboutUsHeading>{sectionData.smallHeading}</AboutUsHeading>
           <Heading>{sectionData.heading}</Heading>
           <Description>{sectionData.description}</Description>

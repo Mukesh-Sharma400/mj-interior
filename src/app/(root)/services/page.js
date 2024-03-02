@@ -86,13 +86,13 @@ export default function Services() {
 
   return (
     <BaseLayout>
-      <Header>
+      <Header data-aos="fade-up">
         <Heading>{pageHeader.heading}</Heading>
         <Description>{pageHeader.description}</Description>
       </Header>
       <ServicesWrapper>
         {servicesData.map((service, index) => (
-          <ServiceCard key={index}>
+          <ServiceCard key={index} data-aos="fade-up">
             <ServiceImageWrapper>
               <ServiceImage
                 src={service.image}

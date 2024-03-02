@@ -21,7 +21,7 @@ export const Counting = () => {
   return (
     <DisplayWrapper ref={ref}>
       <ContentWrapper>
-        <Number>
+        <Number data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.years} duration={5} />
           ) : (
@@ -33,7 +33,7 @@ export const Counting = () => {
       </ContentWrapper>
       <Divider />
       <ContentWrapper>
-        <Number>
+        <Number data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.projects} duration={5} />
           ) : (
@@ -45,7 +45,7 @@ export const Counting = () => {
       </ContentWrapper>
       <Divider />
       <ContentWrapper>
-        <Number>
+        <Number data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.reviews} duration={5} />
           ) : (

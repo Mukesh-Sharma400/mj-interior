@@ -113,11 +113,11 @@ export default function ContactUs() {
         <Toast message={toast.message} color={"black"} />
       </ToastWrapper>
       <MainSection>
-        <Header>
+        <Header data-aos="fade-up">
           <Heading>{pageHeader.heading}</Heading>
           <Description>{pageHeader.description}</Description>
         </Header>
-        <ContactForm ref={form} onSubmit={handleSendMessage}>
+        <ContactForm ref={form} onSubmit={handleSendMessage} data-aos="fade-up">
           <FieldContainer>
             <Label>Your Full Name</Label>
             <TextBox placeholder="John Doe" name="from_name" required />
@@ -154,7 +154,7 @@ export default function ContactUs() {
           </Button>
         </ContactForm>
       </MainSection>
-      <SmallHeader>
+      <SmallHeader data-aos="fade-up">
         <SmallHeading>{officeSectionHeader.heading}</SmallHeading>
         <Heading>{officeSectionHeader.description}</Heading>
       </SmallHeader>
@@ -162,7 +162,7 @@ export default function ContactUs() {
         <LeftSide>
           <AboutUsImage src={aboutus} alt="About Us" />
         </LeftSide>
-        <RightSide>
+        <RightSide data-aos="fade-right">
           <LightHeading>{officeSectionData.heading}</LightHeading>
           <Description>{officeSectionData.description}</Description>
           <PhoneEmailLocationWrapper>

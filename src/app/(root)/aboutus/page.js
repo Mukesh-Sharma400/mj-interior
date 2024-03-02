@@ -12,7 +12,7 @@ export default function AboutUs() {
 
   return (
     <BaseLayout>
-      <Header>
+      <Header data-aos="fade-up">
         <Heading>{pageHeader.heading}</Heading>
         <Description>{pageHeader.description}</Description>
       </Header>

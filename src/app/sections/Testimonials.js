@@ -87,7 +87,7 @@ export const Testimonials = () => {
 
   return (
     <DisplayWrapper>
-      <Header>
+      <Header data-aos="fade-up">
         <TestimonialsHeading>{sectionData.smallHeading}</TestimonialsHeading>
         <Heading>{sectionData.heading}</Heading>
         <Description>{sectionData.description}</Description>
@@ -98,7 +98,7 @@ export const Testimonials = () => {
         >
           <Masonry gutter="16px">
             {testimonialsData.map((testimonial, index) => (
-              <Testimonial key={index}>
+              <Testimonial key={index} data-aos="fade-up">
                 <Message>{testimonial.message}</Message>
                 <PicNameWrapper>
                   <Image
