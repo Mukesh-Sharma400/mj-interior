@@ -312,7 +312,7 @@ const ContactForm = styled.form`
     padding: 4rem;
     max-width: 700px;
   }
-  @media (max-width: 426px) {
+  @media (max-width: 700px) {
     padding: 2rem;
     max-width: 90%;
   }
@@ -407,7 +407,7 @@ const EmailPhoneWrapper = styled.div`
   gap: 2rem;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 426px) {
+  @media (max-width: 600px) {
     flex-direction: column;
   }
 `;

@@ -156,7 +156,7 @@ const ColumnsWrapper = styled.div`
     gap: 30px;
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 700px) {
     flex-direction: column;
   }
 `;
@@ -324,7 +324,7 @@ const BottomWrapper = styled.div`
     font-size: 13px;
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     gap: 10px;
     text-align: center;

@@ -102,7 +102,7 @@ const RoutesWrapper = styled.div`
   gap: 16px;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 426px) {
+  @media (max-width: 700px) {
     display: none;
   }
 `;
@@ -164,7 +164,7 @@ const Button = styled.button`
 
   display: none;
 
-  @media (max-width: 426px) {
+  @media (max-width: 700px) {
     display: flex;
   }
 
