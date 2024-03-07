@@ -126,18 +126,14 @@ export default function ContactUs() {
             <FieldContainer>
               <Label>Your Email</Label>
               <TextBox
-                placeholder="john.doe@example.com"
+                placeholder="john.doe@gmail.com"
                 name="from_email"
                 required
               />
             </FieldContainer>
             <FieldContainer>
               <Label>Your Phone Number</Label>
-              <TextBox
-                placeholder="(+91) 555-555-5555"
-                name="phone_number"
-                required
-              />
+              <TextBox placeholder="5555555555" name="phone_number" required />
             </FieldContainer>
           </EmailPhoneWrapper>
           <FieldContainer>

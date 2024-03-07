@@ -175,6 +175,6 @@ const StyledImage = styled(Image)`
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
   }
 `;
