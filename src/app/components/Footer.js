@@ -5,6 +5,7 @@ import styled from "styled-components";
 import logo from "../../../public/assets/logo.png";
 
 export const Footer = () => {
+  const phoneNumber = "+918097775115";
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -18,21 +19,27 @@ export const Footer = () => {
 
   const sectionData = {
     description:
-      "Established in 2007, MJ Interior has firmly established itself as a leading and esteemed provider of interior renovation services, specializing in construction and building in Ghansoli, Navi Mumbai and more.",
+      "Established in 2007, MJ Interior has firmly established itself as a leading and esteemed provider of interior renovation services, specializing in all types of interior decoration work in Ghansoli, Navi Mumbai and more.",
   };
 
   const socialLinks = [
     {
-      className: "bi bi-facebook",
-      href: "https://www.facebook.com/profile.php?id=61556937652865&sfnsn=wiwspwa&mibextid=RUbZ1f",
-      tooltip: "Facebook",
-      ariaLabel: "Facebook",
+      className: "bi bi-whatsapp",
+      href: `https://wa.me/${phoneNumber}`,
+      tooltip: "WhatsApp",
+      ariaLabel: "WhatsApp",
     },
     {
       className: "bi bi-instagram",
       href: "https://www.instagram.com/_mjinteriors",
       tooltip: "Instagram",
       ariaLabel: "Instagram",
+    },
+    {
+      className: "bi bi-facebook",
+      href: "https://www.facebook.com/profile.php?id=61556937652865&sfnsn=wiwspwa&mibextid=RUbZ1f",
+      tooltip: "Facebook",
+      ariaLabel: "Facebook",
     },
     {
       className: "bi bi-threads",

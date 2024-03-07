@@ -14,7 +14,7 @@ export default function ContactUs() {
   const phoneNumber = "+918097775115";
   const emailAddress = "mjinteriors2007@gmail.com";
   const officeAddress =
-    "Mj Interior, Plot No. 65, Ground Floor, Sector-5, Opp. Tilak International Collage. Near Rly. Station, Ghansoli, Navi Mumbai-400 701";
+    "Plot No.32, Ground Floor, Near Dhanwantari Clinic, Sector - 5, Koparkhairne, Navi Mumbai - 400709.";
   const [toast, setToast] = useState({ visible: false, message: "" });
 
   const showToastMethod = (message) => {

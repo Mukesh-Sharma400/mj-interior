@@ -1,6 +1,10 @@
 import Image from "next/image";
 import styled from "styled-components";
-import interior from "../../../public/assets/interior-design.jpg";
+import galleryOne from "../../../public/assets/gallery-one.jpg";
+import galleryTwo from "../../../public/assets/gallery-two.jpg";
+import galleryThree from "../../../public/assets/gallery-three.jpg";
+import galleryFour from "../../../public/assets/gallery-four.jpg";
+import galleryFive from "../../../public/assets/gallery-five.jpg";
 
 export const Gallery = () => {
   const sectionData = {
@@ -19,19 +23,31 @@ export const Gallery = () => {
       </Header>
       <GalleryWrapper>
         <div className="Column1">
-          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
+          <StyledImage src={galleryOne} alt="Gallery One" data-aos="fade-up" />
         </div>
         <div className="Column21">
-          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
+          <StyledImage src={galleryTwo} alt="Gallery Two" data-aos="fade-up" />
         </div>
         <div className="Column22">
-          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
+          <StyledImage
+            src={galleryThree}
+            alt="Gallery Three"
+            data-aos="fade-up"
+          />
         </div>
         <div className="Column31">
-          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
+          <StyledImage
+            src={galleryFour}
+            alt="Gallery Four"
+            data-aos="fade-up"
+          />
         </div>
         <div className="Column32">
-          <StyledImage src={interior} alt="interior" data-aos="fade-up" />
+          <StyledImage
+            src={galleryFive}
+            alt="Gallery Five"
+            data-aos="fade-up"
+          />
         </div>
       </GalleryWrapper>
     </DisplayWrapper>
@@ -144,7 +160,7 @@ const GalleryWrapper = styled.div`
     overflow: hidden;
   }
 
-  @media (max-width: 426px) {
+  @media (max-width: 500px) {
     max-height: 300px;
   }
   @media (max-width: 376px) {
