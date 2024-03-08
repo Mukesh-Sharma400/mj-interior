@@ -128,7 +128,7 @@ export default function Projects() {
         <Heading>{pageHeader.heading}</Heading>
         <Description>{pageHeader.description}</Description>
       </Header>
-      <TabsWrapper>
+      <TabsWrapper data-aos="fade-up">
         <Tab
           className={activeTab === "Residential" && "active"}
           onClick={() => setActiveTab("Residential")}
