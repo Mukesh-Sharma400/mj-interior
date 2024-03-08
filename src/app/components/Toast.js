@@ -22,5 +22,6 @@ const DisplayWrapper = styled.div`
 
   @media (max-width: 400px) {
     width: 300px;
+    font-size: 14px;
   }
 `;
