@@ -2,9 +2,9 @@ import Image from "next/image";
 import styled from "styled-components";
 import galleryOne from "../../../public/assets/gallery-one.jpg";
 import galleryTwo from "../../../public/assets/gallery-two.jpg";
-import galleryThree from "../../../public/assets/gallery-three.jpg";
 import galleryFour from "../../../public/assets/gallery-four.jpg";
 import galleryFive from "../../../public/assets/gallery-five.jpg";
+import galleryThree from "../../../public/assets/gallery-three.jpg";
 
 export const Gallery = () => {
   const sectionData = {
@@ -72,6 +72,9 @@ const Header = styled.div`
 
   @media (max-width: 1024px) {
     max-width: 750px;
+  }
+  @media (max-width: 850px) {
+    max-width: 90%;
   }
   @media (max-width: 768px) {
     max-width: 85%;
@@ -160,9 +163,25 @@ const GalleryWrapper = styled.div`
     overflow: hidden;
   }
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "Column1 Column1 Column21"
+      "Column1 Column1 Column21"
+      "Column1 Column1 Column22";
+    gap: 10px;
+    .Column31 {
+      display: none;
+    }
+    .Column32 {
+      display: none;
+    }
+  }
+
   @media (max-width: 500px) {
     max-height: 300px;
   }
+
   @media (max-width: 376px) {
     max-height: 250px;
   }

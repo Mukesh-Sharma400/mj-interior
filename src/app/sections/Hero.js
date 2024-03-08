@@ -196,20 +196,23 @@ const Heading = styled.h1`
   color: white;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 1024px) {
-    font-size: 45px;
-  }
-  @media (max-width: 768px) {
+  @media (max-width: 550px) {
     font-size: 40px;
   }
-  @media (max-width: 426px) {
-    font-size: 33px;
+  @media (max-width: 490px) {
+    font-size: 35px;
   }
-  @media (max-width: 376px) {
+  @media (max-width: 430px) {
     font-size: 30px;
   }
-  @media (max-width: 321px) {
-    font-size: 25px;
+  @media (max-width: 366px) {
+    font-size: 28px;
+  }
+  @media (max-width: 342px) {
+    font-size: 26px;
+  }
+  @media (max-width: 300px) {
+    font-size: 22px;
   }
 `;
 
@@ -233,6 +236,7 @@ const ButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: all 0.5s ease-in-out;
 `;
 
 const PrimaryButton = styled.button`

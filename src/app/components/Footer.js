@@ -160,11 +160,8 @@ const ColumnsWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    gap: 30px;
-  }
-
-  @media (max-width: 700px) {
     flex-direction: column;
+    gap: 30px;
   }
 `;
 
@@ -196,7 +193,7 @@ const Description = styled.p`
   color: lightgrey;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 950px) {
     font-size: 13px;
   }
 `;
@@ -285,7 +282,7 @@ const Page = styled(Link)`
     background-color: #23c3c4;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 950px) {
     font-size: 13px;
   }
 `;
@@ -314,7 +311,7 @@ const Service = styled.div`
   color: lightgrey;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 950px) {
     font-size: 13px;
   }
 `;

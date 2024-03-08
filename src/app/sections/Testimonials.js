@@ -141,6 +141,9 @@ const Header = styled.div`
   @media (max-width: 1024px) {
     max-width: 750px;
   }
+  @media (max-width: 850px) {
+    max-width: 90%;
+  }
   @media (max-width: 768px) {
     max-width: 85%;
   }

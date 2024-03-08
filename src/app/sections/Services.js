@@ -24,7 +24,7 @@ export const Services = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 426,
+        breakpoint: 550,
         settings: {
           slidesToShow: 2,
         },
@@ -131,6 +131,9 @@ const Header = styled.div`
   @media (max-width: 1024px) {
     max-width: 750px;
   }
+  @media (max-width: 850px) {
+    max-width: 90%;
+  }
   @media (max-width: 768px) {
     max-width: 85%;
   }
@@ -210,7 +213,10 @@ const SlideTitle = styled.p`
   @media (max-width: 768px) {
     font-size: 20px;
   }
-  @media (max-width: 426px) {
+  @media (max-width: 670px) {
+    font-size: 18px;
+  }
+  @media (max-width: 500px) {
     font-size: 16px;
   }
   @media (max-width: 376px) {

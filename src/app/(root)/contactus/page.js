@@ -209,6 +209,9 @@ const Header = styled.div`
   @media (max-width: 1024px) {
     max-width: 750px;
   }
+  @media (max-width: 850px) {
+    max-width: 90%;
+  }
   @media (max-width: 768px) {
     max-width: 85%;
   }
@@ -304,13 +307,14 @@ const ContactForm = styled.form`
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all 0.5s ease-in-out;
 
+  @media (max-width: 950px) {
+    max-width: 90%;
+  }
   @media (max-width: 768px) {
     padding: 4rem;
-    max-width: 700px;
   }
   @media (max-width: 700px) {
     padding: 2rem;
-    max-width: 90%;
   }
   @media (max-width: 376px) {
     padding: 1.5rem;
@@ -468,7 +472,7 @@ const VisitUsWrapper = styled.div`
   align-items: center;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 426px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     height: 100%;
     max-height: unset;
@@ -500,7 +504,7 @@ const RightSide = styled.div`
   padding: 50px;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 426px) {
+  @media (max-width: 768px) {
     gap: 40px;
     height: fit-content;
   }

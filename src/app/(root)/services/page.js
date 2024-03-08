@@ -125,6 +125,9 @@ const Header = styled.div`
   @media (max-width: 1024px) {
     max-width: 750px;
   }
+  @media (max-width: 850px) {
+    max-width: 90%;
+  }
   @media (max-width: 768px) {
     max-width: 85%;
   }
@@ -190,7 +193,10 @@ const ServiceCard = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    width: 400px;
+  }
+  @media (max-width: 900px) {
     width: 350px;
   }
   @media (max-width: 376px) {
@@ -216,9 +222,17 @@ const ServiceName = styled.p`
   font-weight: 600;
   color: black;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 376px) {
+    font-size: 23px;
+  }
 `;
 
 const ServiceDescription = styled.p`
   color: grey;
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;
