@@ -19,4 +19,8 @@ const DisplayWrapper = styled.div`
   -webkit-backdrop-filter: blur(10.1px);
   border: 1px solid rgba(225, 225, 225, 1);
   transition: all 0.5s ease-in-out;
+
+  @media (max-width: 400px) {
+    width: 300px;
+  }
 `;
