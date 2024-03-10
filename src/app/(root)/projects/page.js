@@ -122,6 +122,14 @@ export default function Projects() {
     },
   ];
 
+  const sortedResidentialProjects = [...residentialProjects].sort((a, b) => {
+    return parseInt(b.projectAmount) - parseInt(a.projectAmount);
+  });
+
+  const sortedCommercialProjects = [...commercialProjects].sort((a, b) => {
+    return parseInt(b.projectAmount) - parseInt(a.projectAmount);
+  });
+
   return (
     <BaseLayout>
       <Header data-aos="fade-up">
@@ -144,7 +152,7 @@ export default function Projects() {
       </TabsWrapper>
       {activeTab === "Residential" ? (
         <ProjectsWrapper>
-          {residentialProjects.map((project, index) => (
+          {sortedResidentialProjects.map((project, index) => (
             <ProjectLayout
               key={index}
               project={project}
@@ -155,7 +163,7 @@ export default function Projects() {
       ) : null}
       {activeTab === "Commercial" ? (
         <ProjectsWrapper>
-          {commercialProjects.map((project, index) => (
+          {sortedCommercialProjects.map((project, index) => (
             <ProjectLayout
               key={index}
               project={project}
