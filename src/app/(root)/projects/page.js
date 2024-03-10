@@ -18,8 +18,8 @@ export default function Projects() {
 
   const residentialProjects = [
     {
-      clientName: "Sanjay Wakkar",
-      projectLocation: "Dahisar Mar",
+      clientName: "Sanjay Walkar",
+      projectLocation: "Dahisar Mori",
       projectAmount: "22 Lakhs",
     },
     {
@@ -38,7 +38,7 @@ export default function Projects() {
       projectAmount: "16 Lakhs",
     },
     {
-      clientName: "Subhay Sir",
+      clientName: "Subhayu Sir",
       projectLocation: "1203, Juhi Green",
       projectAmount: "23 Lakhs",
     },
@@ -48,9 +48,9 @@ export default function Projects() {
       projectAmount: "12 Lakhs",
     },
     {
-      clientName: "Sadashiv Ombde",
+      clientName: "Sadashiv Ombale",
       projectLocation: "1206, Juhi Serenity",
-      projectAmount: "7 Lakhs",
+      projectAmount: "12 Lakhs",
     },
     {
       clientName: "Kannan Das",
@@ -73,7 +73,7 @@ export default function Projects() {
       projectAmount: "12 Lakhs",
     },
     {
-      clientName: "Nusser Arivali",
+      clientName: "Nasser Arivoli",
       projectLocation: "903, Juhi Green",
       projectAmount: "13 Lakhs",
     },
@@ -96,7 +96,7 @@ export default function Projects() {
       projectAmount: "15 Lakhs",
     },
     {
-      clientName: "Surli Collections",
+      clientName: "Surti Collection",
       projectLocation: "Kamothe",
       projectAmount: "15 Lakhs",
     },
