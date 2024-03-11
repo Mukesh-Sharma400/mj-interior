@@ -1,12 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import styled from "styled-components";
 import BaseLayout from "@/app/components/BaseLayout";
 import kuwar from "../../../../public/assets/kuwar.jpg";
 import aboutus from "../../../../public/assets/aboutus-section.jpg";
 
 export default function AboutUs() {
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const pageHeader = {
     heading: "About Us",
     description: "",
@@ -40,14 +55,18 @@ export default function AboutUs() {
       </Header>
       <ContentWrapper>
         <BigSectionWrapper>
-          <KuwarImage src={kuwar} alt="Kuwar Chand" data-aos="fade-left" />
+          <KuwarImage
+            src={kuwar}
+            alt="Kuwar Chand"
+            data-aos={screenWidth > 600 ? "fade-left" : "fade-up"}
+          />
           <div>
             <SectionHeading>{sectionData0.heading}</SectionHeading>
             <SectionDescription>{sectionData0.description}</SectionDescription>
           </div>
         </BigSectionWrapper>
         <SectionWrapper className="section-first">
-          <RightSide data-aos="fade-left">
+          <RightSide data-aos={screenWidth > 600 ? "fade-left" : "fade-right"}>
             <SmallHeading>{sectionData1.smallHeading}</SmallHeading>
             <SectionHeading>{sectionData1.heading}</SectionHeading>
             <SectionDescription>{sectionData1.description}</SectionDescription>
