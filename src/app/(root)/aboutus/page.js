@@ -40,14 +40,14 @@ export default function AboutUs() {
       </Header>
       <ContentWrapper>
         <BigSectionWrapper>
-          <KuwarImage src={kuwar} alt="Kuwar Chand" />
+          <KuwarImage src={kuwar} alt="Kuwar Chand" data-aos="fade-left" />
           <div>
             <SectionHeading>{sectionData0.heading}</SectionHeading>
             <SectionDescription>{sectionData0.description}</SectionDescription>
           </div>
         </BigSectionWrapper>
         <SectionWrapper className="section-first">
-          <RightSide>
+          <RightSide data-aos="fade-left">
             <SmallHeading>{sectionData1.smallHeading}</SmallHeading>
             <SectionHeading>{sectionData1.heading}</SectionHeading>
             <SectionDescription>{sectionData1.description}</SectionDescription>
@@ -60,7 +60,7 @@ export default function AboutUs() {
           <LeftSide>
             <SectionImage src={aboutus} alt="About Us" />
           </LeftSide>
-          <RightSide>
+          <RightSide data-aos="fade-right">
             <SmallHeading>{sectionData2.smallHeading}</SmallHeading>
             <SectionHeading>{sectionData2.heading}</SectionHeading>
             <SectionDescription>{sectionData2.description}</SectionDescription>
@@ -226,8 +226,12 @@ const BigSectionWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 100px;
-  margin: 0 50px;
+  margin: 0 50px 50px;
   transition: all 0.5s ease-in-out;
+
+  ${SectionHeading} {
+    margin-bottom: 0.5rem !important;
+  }
 
   @media (max-width: 1024px) {
     gap: 50px;
