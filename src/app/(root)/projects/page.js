@@ -79,7 +79,7 @@ export default function Projects() {
     },
     {
       clientName: "Yogesh Panchal",
-      projectLocation: "201, Bohodyodog",
+      projectLocation: "201, Bhagyauday",
       projectAmount: "14 Lakhs",
     },
   ];
