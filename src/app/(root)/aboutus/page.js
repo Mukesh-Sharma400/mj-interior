@@ -58,7 +58,7 @@ export default function AboutUs() {
           <KuwarImage
             src={kuwar}
             alt="Kuwar Chand"
-            data-aos={screenWidth > 600 ? "fade-left" : "fade-up"}
+            data-aos={screenWidth > 768 ? "fade-left" : "fade-up"}
           />
           <div>
             <SectionHeading>{sectionData0.heading}</SectionHeading>
@@ -66,7 +66,7 @@ export default function AboutUs() {
           </div>
         </BigSectionWrapper>
         <SectionWrapper className="section-first">
-          <RightSide data-aos={screenWidth > 600 ? "fade-left" : "fade-right"}>
+          <RightSide data-aos={screenWidth > 768 ? "fade-left" : "fade-right"}>
             <SmallHeading>{sectionData1.smallHeading}</SmallHeading>
             <SectionHeading>{sectionData1.heading}</SectionHeading>
             <SectionDescription>{sectionData1.description}</SectionDescription>
