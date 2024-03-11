@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import BaseLayout from "@/app/components/BaseLayout";
 import kuwar from "../../../../public/assets/kuwar.jpg";
 import aboutus from "../../../../public/assets/aboutus-section.jpg";
