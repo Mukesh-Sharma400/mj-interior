@@ -121,30 +121,7 @@ const Description = styled.p`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   transition: all 0.5s ease-in-out;
-`;
-
-const BigSectionWrapper = styled.div`
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  gap: 100px;
-  margin: 0 50px;
-  transition: all 0.5s ease-in-out;
-
-  @media (max-width: 1024px) {
-    gap: 50px;
-  }
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-  @media (max-width: 550px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 426px) {
-    margin: 0 20px;
-  }
 `;
 
 const KuwarImage = styled(Image)`
@@ -169,10 +146,10 @@ const LeftSide = styled.div`
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 550px) {
-    padding: 30px;
+    padding: 40px 30px;
   }
   @media (max-width: 426px) {
-    padding: 20px;
+    padding: 30px 20px;
   }
 `;
 
@@ -197,10 +174,10 @@ const RightSide = styled.div`
     height: fit-content;
   }
   @media (max-width: 550px) {
-    padding: 30px;
+    padding: 40px 30px;
   }
   @media (max-width: 426px) {
-    padding: 20px;
+    padding: 30px 20px;
   }
   @media (max-width: 376px) {
     gap: 30px;
@@ -244,6 +221,34 @@ const SectionDescription = styled.p`
   }
 `;
 
+const BigSectionWrapper = styled.div`
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin: 0 50px;
+  transition: all 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    gap: 50px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 0 30px 0;
+    gap: 20px;
+    flex-direction: column;
+
+    ${SectionHeading} {
+      margin-bottom: 1rem !important;
+    }
+  }
+  @media (max-width: 550px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 426px) {
+    margin: 0 20px;
+  }
+`;
+
 const SectionWrapper = styled.div`
   width: 100%;
   padding: 0 5%;
@@ -273,6 +278,7 @@ const SectionWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
+    padding: 0;
     &.section-second {
       flex-direction: column-reverse;
     }
