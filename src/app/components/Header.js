@@ -154,6 +154,7 @@ const Route = styled(Link)`
 `;
 
 const Button = styled.button`
+  padding: 0;
   --gap: 5px;
   --height-bar: 3px;
   --pos-y-bar-one: 0;
@@ -168,7 +169,9 @@ const Button = styled.button`
     display: flex;
   }
 
-  width: 40px;
+  width: 35px;
+  min-width: 35px;
+  max-width: 35px;
   flex-direction: column;
   gap: var(--gap);
   cursor: pointer;
