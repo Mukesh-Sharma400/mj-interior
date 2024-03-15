@@ -35,6 +35,7 @@ export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
     { path: "/", label: "Home" },
     { path: "/services", label: "Services" },
     { path: "/projects", label: "Projects" },
+    { path: "/gallery", label: "Gallery" },
     { path: "/aboutus", label: "About Us" },
     { path: "/contactus", label: "Contact Us" },
   ];
