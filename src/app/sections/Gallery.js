@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { useRouter } from "next/navigation";
 import galleryOne from "../../../public/assets/gallery-one.jpg";
 import galleryTwo from "../../../public/assets/gallery-two.jpg";
 import galleryFour from "../../../public/assets/gallery-four.jpg";
@@ -7,6 +8,8 @@ import galleryFive from "../../../public/assets/gallery-five.jpg";
 import galleryThree from "../../../public/assets/gallery-three.jpg";
 
 export const Gallery = () => {
+  const router = useRouter();
+
   const sectionData = {
     smallHeading: "Gallery",
     heading: "Take a Look at Our Recent Projects",
@@ -50,6 +53,12 @@ export const Gallery = () => {
           />
         </div>
       </GalleryWrapper>
+      <ButtonWrapper>
+        <SecondaryButton onClick={() => router.push("/gallery")}>
+          <span className="transition"></span>
+          <span className="label">View More</span>
+        </SecondaryButton>
+      </ButtonWrapper>
     </DisplayWrapper>
   );
 };
@@ -195,5 +204,64 @@ const StyledImage = styled(Image)`
 
   &:hover {
     transform: scale(1.1) !important;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+`;
+
+const SecondaryButton = styled.button`
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  color: black;
+  background-color: transparent;
+  border: 2px solid #23c3c4 !important;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+
+  .transition {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transition-duration: 500ms;
+    background-color: #ab81e8;
+    border-radius: 9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label {
+    position: relative;
+    top: -1px;
+  }
+
+  &:hover {
+    border: 2px solid #ab81e8 !important;
+  }
+
+  &:hover .transition {
+    width: 14em;
+    height: 14em;
+  }
+
+  @media (max-width: 1024px) {
+    width: 170px;
+    height: 35px;
+    font-size: 18px;
+  }
+  @media (max-width: 426px) {
+    width: 130px;
+    height: 30px;
+    font-size: 15px;
   }
 `;
