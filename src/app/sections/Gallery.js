@@ -54,7 +54,10 @@ export const Gallery = () => {
         </div>
       </GalleryWrapper>
       <ButtonWrapper>
-        <SecondaryButton onClick={() => router.push("/gallery")}>
+        <SecondaryButton
+          data-aos="fade-up"
+          onClick={() => router.push("/gallery")}
+        >
           <span className="transition"></span>
           <span className="label">View More</span>
         </SecondaryButton>
