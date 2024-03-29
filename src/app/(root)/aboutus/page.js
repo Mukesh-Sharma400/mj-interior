@@ -28,9 +28,9 @@ export default function AboutUs() {
   };
 
   const sectionData0 = {
-    heading: "Kuwar Chand",
+    heading: "Kuwar Chand Sharma",
     description:
-      "Meet the visionary behind MJ Interior, Kuwar Chand. With a steadfast commitment to excellence, he has not only shaped the company but also laid the very foundation upon which endeavors rest. His keen eye for detail, coupled with a passion for perfection, has permeated every aspect of work, ensuring that each project undertaken by MJ Interior reflects the highest standards of quality and craftsmanship.",
+      "Meet the visionary behind MJ Interior, Kuwar Chand Sharma. With a steadfast commitment to excellence, he has not only shaped the company but also laid the very foundation upon which endeavors rest. His keen eye for detail, coupled with a passion for perfection, has permeated every aspect of work, ensuring that each project undertaken by MJ Interior reflects the highest standards of quality and craftsmanship.",
   };
 
   const sectionData1 = {
