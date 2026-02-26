@@ -12,24 +12,24 @@ export const metadata = {
   keywords:
     "interior design, creative spaces, home decor, aesthetic designs, innovative interiors",
   author: "Mukesh Sharma",
-  image: "./icon.png",
+  image: "./icon-new.png",
   url: "https://mjinterior.co.in",
   type: "website",
   ogTitle: "MJ Interior",
   ogDescription:
     "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
-  ogImage: "./icon.png",
+  ogImage: "./icon-new.png",
   twitterTitle: "MJ Interior",
   twitterDescription:
     "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
-  twitterImage: "./icon.png",
+  twitterImage: "./icon-new.png",
 };
 
 export default function Layout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="./icon.png" type="image/png" />
+        <link rel="icon" href="./icon-new.png" type="image/png" />
         <link
           rel="stylesheet"
           type="text/css"

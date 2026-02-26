@@ -103,16 +103,16 @@ const Route = styled(Link)`
 
   &.active {
     color: white;
-    background-color: #ab81e8;
+    background-color: #c9a84c;
 
     &:focus {
       color: white;
-      background-color: #ab81e8;
+      background-color: #c9a84c;
     }
   }
 
   &:focus {
     color: white;
-    background-color: #23c3c4;
+    background-color: #111111;
   }
 `;

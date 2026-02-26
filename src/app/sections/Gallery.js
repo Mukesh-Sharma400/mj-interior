@@ -224,7 +224,7 @@ const SecondaryButton = styled.button`
   font-size: 20px;
   color: black;
   background-color: transparent;
-  border: 2px solid #23c3c4 !important;
+  border: 2px solid #111111 !important;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -233,7 +233,7 @@ const SecondaryButton = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #ab81e8;
+    background-color: #c9a84c;
     border-radius: 9999px;
     width: 0;
     height: 0;
@@ -249,7 +249,7 @@ const SecondaryButton = styled.button`
   }
 
   &:hover {
-    border: 2px solid #ab81e8 !important;
+    border: 2px solid #c9a84c !important;
   }
 
   &:hover .transition {

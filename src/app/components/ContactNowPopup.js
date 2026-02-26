@@ -48,7 +48,7 @@ export const ContactNowPopup = ({ handleClose }) => {
           "service_ras8q59",
           "template_awt5flq",
           form.current,
-          "G2jRmj0pDyOsthWG0"
+          "G2jRmj0pDyOsthWG0",
         )
         .then(
           (result) => {
@@ -57,7 +57,7 @@ export const ContactNowPopup = ({ handleClose }) => {
           },
           (error) => {
             showToastMethod("Oops something went wrong");
-          }
+          },
         );
     } else {
       showToastMethod("Please fill out all required fields correctly");
@@ -275,7 +275,7 @@ const Button = styled.button`
   font-size: 20px;
   font-weight: 600;
   color: white;
-  background-color: #ab81e8;
+  background-color: #c9a84c;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -284,7 +284,7 @@ const Button = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #23c3c4;
+    background-color: #111111;
     border-radius: 9999px;
     width: 0;
     height: 0;

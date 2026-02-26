@@ -280,17 +280,17 @@ const Tab = styled.button`
 
   &.active {
     color: white;
-    background-color: #ab81e8;
+    background-color: #c9a84c;
 
     &:focus {
       color: white;
-      background-color: #ab81e8;
+      background-color: #c9a84c;
     }
   }
 
   &:hover {
     color: white;
-    background-color: #23c3c4;
+    background-color: #111111;
   }
 
   @media (max-width: 550px) {

@@ -4,7 +4,7 @@ import { SideMenu } from "./SideMenu";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import logo from "../../../public/assets/logo.png";
+import logo from "../../../public/assets/logo-new.png";
 
 export const Header = () => {
   const pathname = usePathname();
@@ -125,7 +125,7 @@ const Route = styled(Link)`
   }
 
   &:hover {
-    color: #23c3c4;
+    color: #2b1d16;
   }
 
   &::before {
@@ -135,9 +135,11 @@ const Route = styled(Link)`
     left: 0;
     height: 2px;
     background-color: ${(props) =>
-      props.className === "active" ? "#ab81e8" : "#23c3c4"};
+      props.className === "active" ? "#c9a84c" : "#2b1d16"};
     width: 0;
-    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition:
+      width 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
   }
 
   &:hover::before {
@@ -145,11 +147,11 @@ const Route = styled(Link)`
   }
 
   &.active {
-    color: #ab81e8;
+    color: #c9a84c;
     font-weight: bold;
     &::before {
       width: 100%;
-      background-color: #ab81e8;
+      background-color: #c9a84c;
     }
   }
 `;
@@ -184,13 +186,15 @@ const Button = styled.button`
     height: var(--height-bar);
     width: 100%;
     border-radius: 0.5rem;
-    background-color: #9941fc;
+    background-color: #c9a84c;
   }
 
   .bar--1 {
     top: var(--pos-y-bar-one);
     transform: rotate(var(--rotate-bar-one));
-    transition: top 200ms 100ms, transform 100ms;
+    transition:
+      top 200ms 100ms,
+      transform 100ms;
   }
 
   .bar--2 {
@@ -201,7 +205,9 @@ const Button = styled.button`
   .bar--3 {
     bottom: var(--pos-y-bar-three);
     transform: rotate(var(--rotate-bar-three));
-    transition: bottom 200ms 100ms, transform 100ms;
+    transition:
+      bottom 200ms 100ms,
+      transform 100ms;
   }
 
   ${(props) =>

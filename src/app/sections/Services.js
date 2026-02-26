@@ -108,13 +108,13 @@ const DisplayWrapper = styled.div`
   padding-bottom: 50px;
   background-image: repeating-linear-gradient(
     to right,
-    #1d1d1d,
-    #1d1d1d 0.5px,
+    #3e2723,
+    #3e2723 0.5px,
     transparent 0.5px,
     transparent
   );
   background-size: 200px 200px;
-  background-color: #0c0e17;
+  background-color: #2b1d16;
   transition: all 0.5s ease-in-out;
 `;
 

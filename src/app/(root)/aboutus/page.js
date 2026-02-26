@@ -9,7 +9,7 @@ import aboutus from "../../../../public/assets/aboutus-section.jpg";
 
 export default function AboutUs() {
   const [screenWidth, setScreenWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
+    typeof window !== "undefined" ? window.innerWidth : 0,
   );
 
   useEffect(() => {
@@ -284,13 +284,13 @@ const SectionWrapper = styled.div`
   &.section-first {
     background-image: repeating-linear-gradient(
       to right,
-      #1d1d1d,
-      #1d1d1d 0.5px,
+      #3e2723,
+      #3e2723 0.5px,
       transparent 0.5px,
       transparent
     );
     background-size: 200px 200px;
-    background-color: #0c0e17;
+    background-color: #2b1d16;
 
     ${SmallHeading} {
       color: white;

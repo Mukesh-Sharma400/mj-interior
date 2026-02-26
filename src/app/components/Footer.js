@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
-import logo from "../../../public/assets/logo.png";
+import logo from "../../../public/assets/logo-new.png";
 
 export const Footer = () => {
   const pathName = usePathname();
@@ -12,7 +12,7 @@ export const Footer = () => {
 
   useEffect(() => {
     const tooltipTriggerList = [].slice.call(
-      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      document.querySelectorAll('[data-bs-toggle="tooltip"]'),
     );
     const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
       return new window.bootstrap.Tooltip(tooltipTriggerEl);
@@ -102,7 +102,7 @@ export const Footer = () => {
                 <Page key={page.path} href={page.path}>
                   {page.label}
                 </Page>
-              )
+              ),
             )}
           </PagesWrapper>
         </Column2>
@@ -144,13 +144,13 @@ const DisplayWrapper = styled.div`
   padding: 50px 5%;
   background-image: repeating-linear-gradient(
     to right,
-    #1d1d1d,
-    #1d1d1d 0.5px,
+    #3e2723,
+    #3e2723 0.5px,
     transparent 0.5px,
     transparent
   );
   background-size: 200px 200px;
-  background-color: #0c0e17;
+  background-color: #2b1d16;
   transition: all 0.5s ease-in-out;
 `;
 
@@ -225,7 +225,8 @@ const SocialLink = styled(Link)`
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    color: #23c3c4;
+    color: #c9a84c;
+    border: 1px solid #c9a84c;
   }
 `;
 
@@ -268,7 +269,7 @@ const Page = styled(Link)`
   border-bottom: 1px solid transparent;
 
   &:hover {
-    color: #23c3c4;
+    color: #c9a84c;
   }
 
   &::before {
@@ -279,12 +280,14 @@ const Page = styled(Link)`
     height: 1px;
     background-color: transparent;
     width: 0;
-    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition:
+      width 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
   }
 
   &:hover::before {
     width: 100%;
-    background-color: #23c3c4;
+    background-color: #c9a84c;
   }
 
   @media (max-width: 950px) {

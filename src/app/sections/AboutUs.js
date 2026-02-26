@@ -138,7 +138,7 @@ const Button = styled.button`
   font-size: 20px;
   font-weight: 600;
   color: white;
-  background-color: #ab81e8;
+  background-color: #c9a84c;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -147,7 +147,7 @@ const Button = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #23c3c4;
+    background-color: #111111;
     border-radius: 9999px;
     width: 0;
     height: 0;
