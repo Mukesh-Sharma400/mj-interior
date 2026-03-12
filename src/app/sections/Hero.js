@@ -4,7 +4,7 @@ import copy from "clipboard-copy";
 import styled from "styled-components";
 import { useRef, useState } from "react";
 import { Toast } from "../components/Toast";
-import backgroundImage from "../../../public/assets/hero-background.jpg";
+import backgroundImage from "../../../public/assets/hero-background-new.jpg";
 
 export const Hero = () => {
   const timeoutRef = useRef(null);
