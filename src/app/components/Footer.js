@@ -1,84 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
 import styled from "styled-components";
 import { usePathname } from "next/navigation";
-import logo from "../../../public/assets/logo-new.png";
+import { linedBackground } from "@/app/colors";
+import { business, routes, services, socialLinks } from "@/app/data/site";
+import logo from "#/logo.webp";
 
 export const Footer = () => {
   const pathName = usePathname();
-  const phoneNumber = "+918097775115";
   const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    const tooltipTriggerList = [].slice.call(
-      document.querySelectorAll('[data-bs-toggle="tooltip"]'),
-    );
-    const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => {
-      return new window.bootstrap.Tooltip(tooltipTriggerEl);
-    });
-  }, []);
-
-  const sectionData = {
-    description:
-      "Established in 2007, MJ Interior has firmly established itself as a leading and esteemed provider of interior renovation services, specializing in all types of interior decoration work in Ghansoli, Navi Mumbai and more.",
-  };
-
-  const socialLinks = [
-    {
-      className: "bi bi-whatsapp",
-      href: `https://wa.me/${phoneNumber}`,
-      tooltip: "WhatsApp",
-      ariaLabel: "WhatsApp",
-    },
-    {
-      className: "bi bi-instagram",
-      href: "https://www.instagram.com/_mjinteriors",
-      tooltip: "Instagram",
-      ariaLabel: "Instagram",
-    },
-    {
-      className: "bi bi-facebook",
-      href: "https://www.facebook.com/profile.php?id=61556937652865&sfnsn=wiwspwa&mibextid=RUbZ1f",
-      tooltip: "Facebook",
-      ariaLabel: "Facebook",
-    },
-    {
-      className: "bi bi-threads",
-      href: "https://www.threads.net/@_mjinteriors",
-      tooltip: "Threads",
-      ariaLabel: "Threads",
-    },
-  ];
-
-  const routesData = [
-    { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
-    { path: "/projects", label: "Projects" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/aboutus", label: "About Us" },
-    { path: "/contactus", label: "Contact Us" },
-  ];
-
-  const servicesData = [
-    "Interior Designing",
-    "Civil Work",
-    "Tiling And Flooring",
-    "Electrical Work",
-    "Fabrication Work",
-    "Painting Work",
-    "POP Work",
-    "Carpenter Work",
-    "Modular Kitchen",
-    "Turnkey Contractor",
-  ];
-
   return (
-    <DisplayWrapper>
+    <DisplayWrapper as="footer">
       <ColumnsWrapper>
-        <Column1>
+        <LogoColumn>
           <Logo src={logo} alt="MJ Interior" />
-          <Description>{sectionData.description}</Description>
+          <Description>{business.footerDescription}</Description>
           <SocialLinksWrapper>
             {socialLinks.map((link, index) => (
               <SocialLink
@@ -86,18 +23,19 @@ export const Footer = () => {
                 className={link.className}
                 href={link.href}
                 target="_blank"
+                rel="noopener noreferrer"
                 data-bs-toggle="tooltip"
-                data-bs-title={link.tooltip}
+                data-bs-title={link.label}
                 data-bs-custom-class="custom-tooltip"
-                aria-label={link.ariaLabel}
+                aria-label={link.label}
               ></SocialLink>
             ))}
           </SocialLinksWrapper>
-        </Column1>
-        <Column2>
+        </LogoColumn>
+        <PagesColumn>
           <SectionHeading>Pages</SectionHeading>
           <PagesWrapper>
-            {routesData.map((page) =>
+            {routes.map((page) =>
               page.path === pathName ? null : (
                 <Page key={page.path} href={page.path}>
                   {page.label}
@@ -105,28 +43,32 @@ export const Footer = () => {
               ),
             )}
           </PagesWrapper>
-        </Column2>
-        <Column3>
+        </PagesColumn>
+        <ServicesColumn>
           <SectionHeading>Services</SectionHeading>
           <ServicesWrapper>
-            {servicesData.map((service, index) => (
-              <Service key={index}>
-                <i className="bi bi-check2-circle"></i> {service}
+            {services.map((service) => (
+              <Service key={service.name}>
+                <i className="bi bi-check2-circle"></i> {service.name}
               </Service>
             ))}
           </ServicesWrapper>
-        </Column3>
+        </ServicesColumn>
       </ColumnsWrapper>
       <BottomWrapper>
         <LeftSide>
           <p>
-            © {currentYear} <span>MJ Interior</span>. All rights reserved.
+            © {currentYear} <span>{business.name}</span>. All rights reserved.
           </p>
         </LeftSide>
         <RightSide>
           <p>
             Designed and Developed by{" "}
-            <a href="https://mukesh-sharma.vercel.app" target="_blank">
+            <a
+              href="https://mukesh-sharma.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Mukesh Sharma
             </a>
           </p>
@@ -142,15 +84,7 @@ const DisplayWrapper = styled.div`
   flex-direction: column;
   gap: 50px;
   padding: 50px 5%;
-  background-image: repeating-linear-gradient(
-    to right,
-    #3e2723,
-    #3e2723 0.5px,
-    transparent 0.5px,
-    transparent
-  );
-  background-size: 200px 200px;
-  background-color: #2b1d16;
+  ${({ theme }) => linedBackground(theme.colors.brownLine, theme.colors.brown)}
   transition: all 0.5s ease-in-out;
 `;
 
@@ -170,7 +104,7 @@ const ColumnsWrapper = styled.div`
   }
 `;
 
-const Column1 = styled.div`
+const LogoColumn = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -195,7 +129,7 @@ const Logo = styled(Image)`
 
 const Description = styled.p`
   font-size: 15px;
-  color: lightgrey;
+  color: ${({ theme }) => theme.colors.mutedLight};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 950px) {
@@ -220,24 +154,24 @@ const SocialLink = styled(Link)`
   text-decoration: none;
   font-size: 20px;
   border-radius: 50%;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.whiteTranslucent};
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    color: #c9a84c;
-    border: 1px solid #c9a84c;
+    color: ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
   }
 `;
 
 const SectionHeading = styled.p`
   font-size: 25px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   margin-bottom: 10px;
   transition: all 0.5s ease-in-out;
 `;
 
-const Column2 = styled.div`
+const PagesColumn = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -263,13 +197,13 @@ const Page = styled(Link)`
   display: flex;
   gap: 5px;
   padding: 10px 0px;
-  color: lightgrey;
+  color: ${({ theme }) => theme.colors.mutedLight};
   text-decoration: none;
   transition: all 0.5s ease-in-out;
   border-bottom: 1px solid transparent;
 
   &:hover {
-    color: #c9a84c;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &::before {
@@ -287,7 +221,7 @@ const Page = styled(Link)`
 
   &:hover::before {
     width: 100%;
-    background-color: #c9a84c;
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 
   @media (max-width: 950px) {
@@ -295,7 +229,7 @@ const Page = styled(Link)`
   }
 `;
 
-const Column3 = styled.div`
+const ServicesColumn = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -316,7 +250,7 @@ const Service = styled.div`
   display: flex;
   gap: 5px;
   padding: 10px 0px;
-  color: lightgrey;
+  color: ${({ theme }) => theme.colors.mutedLight};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 950px) {
@@ -328,7 +262,7 @@ const BottomWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 15px;
   transition: all 0.5s ease-in-out;
 
@@ -355,14 +289,14 @@ const RightSide = styled.div`
   transition: all 0.5s ease-in-out;
 
   a {
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     text-decoration: none;
     transition: all 0.5s ease-in-out;
 
     font-weight: 600;
     &:hover {
       cursor: pointer;
-      color: royalBlue;
+      color: ${({ theme }) => theme.colors.creditHover};
     }
   }
 `;

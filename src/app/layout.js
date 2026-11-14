@@ -1,55 +1,67 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import "./globals.css";
 import { Providers } from "./providers";
+import { business } from "@/app/data/site";
 import { Analytics } from "@vercel/analytics/react";
 
+const siteUrl = business.siteUrl;
+const siteTitle = business.name;
+const siteDescription = business.description;
+
 export const metadata = {
-  title: "MJ Interior",
-  description:
-    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
-  keywords:
-    "interior design, creative spaces, home decor, aesthetic designs, innovative interiors",
-  author: "Mukesh Sharma",
-  image: "./icon.png",
-  url: "https://mjinterior.co.in",
-  type: "website",
-  ogTitle: "MJ Interior",
-  ogDescription:
-    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
-  ogImage: "./icon.png",
-  twitterTitle: "MJ Interior",
-  twitterDescription:
-    "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
-  twitterImage: "./icon.png",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "interior design",
+    "interior designer Navi Mumbai",
+    "interior renovation",
+    "modular kitchen",
+    "POP work",
+    "turnkey contractor",
+    "Koparkhairne",
+    "Ghansoli",
+    "home decor",
+  ],
+  authors: [{ name: "Mukesh Sharma", url: "https://mukesh-sharma.vercel.app" }],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: siteTitle,
+    title: siteTitle,
+    description: siteDescription,
+    locale: "en_IN",
+    images: [
+      {
+        url: "/assets/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "MJ Interior interior design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/assets/og-image.jpg"],
+  },
 };
 
 export default function Layout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="./icon.png" type="image/png" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-      </head>
       <body>
         <Providers>{children}</Providers>
         <Analytics />
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-          crossOrigin="anonymous"
-        ></script>
       </body>
     </html>
   );

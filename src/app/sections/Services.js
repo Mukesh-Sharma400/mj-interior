@@ -1,16 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Slider from "react-slick";
 import styled from "styled-components";
-import turnkey from "../../../public/assets/turnkey.jpg";
-import popWork from "../../../public/assets/pop-work.jpg";
-import painting from "../../../public/assets/painting.png";
-import civilWork from "../../../public/assets/civil-work.png";
-import electrical from "../../../public/assets/electrical.jpg";
-import carpenters from "../../../public/assets/carpenters.jpg";
-import modular from "../../../public/assets/modular-kitchen.jpg";
-import fabrication from "../../../public/assets/fabrication.jpg";
-import interior from "../../../public/assets/interior-design.jpg";
-import flooring from "../../../public/assets/tiling-flooring.jpg";
+import { linedBackground } from "@/app/colors";
+import { services } from "@/app/data/site";
 
 export const Services = () => {
   const settings = {
@@ -39,49 +33,6 @@ export const Services = () => {
       "Dive into the realm of excellence with our tailored services, meticulously crafted for every space and vision. Discover the unparalleled quality of our offerings.",
   };
 
-  const servicesData = [
-    {
-      image: interior,
-      title: "Interior Designing",
-    },
-    {
-      image: civilWork,
-      title: "Civil Work",
-    },
-    {
-      image: flooring,
-      title: "Tiling And Flooring",
-    },
-    {
-      image: electrical,
-      title: "Electrical Work",
-    },
-    {
-      image: fabrication,
-      title: "Fabrication Work",
-    },
-    {
-      image: painting,
-      title: "Painting Work",
-    },
-    {
-      image: popWork,
-      title: "POP Work",
-    },
-    {
-      image: carpenters,
-      title: "Carpenter Work",
-    },
-    {
-      image: modular,
-      title: "Modular Kitchen",
-    },
-    {
-      image: turnkey,
-      title: "Turnkey Contractor",
-    },
-  ];
-
   return (
     <DisplayWrapper>
       <Header data-aos="fade-up">
@@ -89,16 +40,20 @@ export const Services = () => {
         <Heading>{sectionData.heading}</Heading>
         <Description>{sectionData.description}</Description>
       </Header>
-      <MySlider {...settings}>
-        {servicesData.map((service, index) => (
-          <MySlide key={index}>
+      <ServicesSlider {...settings}>
+        {services.map((service) => (
+          <ServiceSlide key={service.name}>
             <SlideImageWrapper>
-              <SlideImage src={service.image} alt={service.title} />
+              <SlideImage
+                src={service.image}
+                alt={service.name}
+                sizes="(max-width: 550px) 45vw, 30vw"
+              />
             </SlideImageWrapper>
-            <SlideTitle>{service.title}</SlideTitle>
-          </MySlide>
+            <SlideTitle>{service.name}</SlideTitle>
+          </ServiceSlide>
         ))}
-      </MySlider>
+      </ServicesSlider>
     </DisplayWrapper>
   );
 };
@@ -106,15 +61,7 @@ export const Services = () => {
 const DisplayWrapper = styled.div`
   width: 100%;
   padding-bottom: 50px;
-  background-image: repeating-linear-gradient(
-    to right,
-    #3e2723,
-    #3e2723 0.5px,
-    transparent 0.5px,
-    transparent
-  );
-  background-size: 200px 200px;
-  background-color: #2b1d16;
+  ${({ theme }) => linedBackground(theme.colors.brownLine, theme.colors.brown)}
   transition: all 0.5s ease-in-out;
 `;
 
@@ -141,14 +88,14 @@ const Header = styled.div`
 
 const ServicesHeading = styled.p`
   font-size: 20px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
 `;
 
 const Heading = styled.h1`
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -162,7 +109,7 @@ const Heading = styled.h1`
 const Description = styled.p`
   font-size: 20px;
   letter-spacing: 1px;
-  color: lightgrey;
+  color: ${({ theme }) => theme.colors.mutedLight};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -173,13 +120,13 @@ const Description = styled.p`
   }
 `;
 
-const MySlider = styled(Slider)`
+const ServicesSlider = styled(Slider)`
   width: 90%;
   margin: 0 auto;
   transition: all 0.5s ease-in-out;
 `;
 
-const MySlide = styled.div`
+const ServiceSlide = styled.div`
   padding: 0 10px;
   transition: all 0.5s ease-in-out;
 `;
@@ -207,7 +154,7 @@ const SlideImage = styled(Image)`
 const SlideTitle = styled.p`
   text-align: center;
   font-size: 25px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 768px) {
