@@ -1,46 +1,43 @@
+"use client";
+
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
-import { ContactNowPopup } from "../components/ContactNowPopup";
-import aboutus from "../../../public/assets/aboutus-section.jpg";
+import { ContactPopup } from "@/app/components/ContactPopup";
+import { business } from "@/app/data/site";
+import aboutUsImage from "#/about-us.webp";
 
 export const AboutUs = () => {
   const [showContactPopup, setShowContactPopup] = useState(false);
+  const closeContactPopup = useCallback(() => setShowContactPopup(false), []);
 
   const sectionData = {
     smallHeading: "About Us",
     heading: "The Combination of Modern & Simplicity",
-    description:
-      "MJ Interior is a company of creative interior designers who have the ability to see the world through an aesthetic filter and transitioning the domain into the versions of their perspective, filled with captivating sights.",
+    description: business.description,
   };
 
   return (
     <>
       <DisplayWrapper>
         <LeftSide>
-          <AboutUsImage src={aboutus} alt="About Us" />
+          <AboutUsImage
+            src={aboutUsImage}
+            alt="Interior designed by MJ Interior"
+            sizes="(max-width: 768px) 100vw, 720px"
+          />
         </LeftSide>
         <RightSide data-aos="fade-right">
           <AboutUsHeading>{sectionData.smallHeading}</AboutUsHeading>
           <Heading>{sectionData.heading}</Heading>
           <Description>{sectionData.description}</Description>
-          <Button
-            onClick={() => {
-              setShowContactPopup(true);
-            }}
-          >
+          <Button type="button" onClick={() => setShowContactPopup(true)}>
             <span className="transition"></span>
             <span className="label">Contact Now</span>
           </Button>
         </RightSide>
       </DisplayWrapper>
-      {showContactPopup && (
-        <ContactNowPopup
-          handleClose={() => {
-            setShowContactPopup(false);
-          }}
-        />
-      )}
+      {showContactPopup && <ContactPopup handleClose={closeContactPopup} />}
     </>
   );
 };
@@ -101,7 +98,7 @@ const RightSide = styled.div`
 
 const AboutUsHeading = styled.p`
   font-size: 20px;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
@@ -121,7 +118,7 @@ const Heading = styled.h1`
 const Description = styled.p`
   font-size: 20px;
   letter-spacing: 1px;
-  color: grey;
+  color: ${({ theme }) => theme.colors.muted};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -137,8 +134,8 @@ const Button = styled.button`
   height: 60px;
   font-size: 20px;
   font-weight: 600;
-  color: white;
-  background-color: #c9a84c;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -147,7 +144,7 @@ const Button = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #111111;
+    background-color: ${({ theme }) => theme.colors.dark};
     border-radius: 9999px;
     width: 0;
     height: 0;

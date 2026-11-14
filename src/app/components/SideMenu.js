@@ -2,51 +2,53 @@ import Link from "next/link";
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { routes } from "@/app/data/site";
 
 export const SideMenu = ({ sideMenuOpened, setSideMenuOpened }) => {
   const sideMenuRef = useRef();
   const pathname = usePathname();
 
   useEffect(() => {
+    if (!sideMenuOpened) return;
+
     const handleDocumentClick = (event) => {
-      if (
-        sideMenuOpened &&
-        sideMenuRef.current &&
-        !sideMenuRef.current.contains(event.target)
-      ) {
+      if (sideMenuRef.current && !sideMenuRef.current.contains(event.target)) {
         setSideMenuOpened(false);
       }
     };
 
-    const handleScroll = () => {
+    const handleClose = () => {
       setSideMenuOpened(false);
     };
 
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setSideMenuOpened(false);
+    };
+
     document.addEventListener("click", handleDocumentClick);
-    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("scroll", handleClose, { passive: true });
 
     return () => {
       document.removeEventListener("click", handleDocumentClick);
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("scroll", handleClose);
     };
-  }, [sideMenuOpened]);
-
-  const routesData = [
-    { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
-    { path: "/projects", label: "Projects" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/aboutus", label: "About Us" },
-    { path: "/contactus", label: "Contact Us" },
-  ];
+  }, [sideMenuOpened, setSideMenuOpened]);
 
   return (
-    <DisplayWrapper ref={sideMenuRef} sideMenuOpened={sideMenuOpened}>
-      <RoutesWrapper>
-        {routesData.map((route) => (
+    <DisplayWrapper
+      ref={sideMenuRef}
+      $sideMenuOpened={sideMenuOpened}
+      // Keep closed menu links out of the tab order and screen readers
+      inert={sideMenuOpened ? undefined : ""}
+    >
+      <RoutesWrapper aria-label="Mobile">
+        {routes.map((route) => (
           <Route
             key={route.path}
-            className={pathname === route.path && "active"}
+            className={pathname === route.path ? "active" : undefined}
+            aria-current={pathname === route.path ? "page" : undefined}
             href={route.path}
           >
             {route.label}
@@ -61,15 +63,17 @@ const DisplayWrapper = styled.div`
   display: none;
   width: 50%;
   height: 100vh;
-  background: rgba(225, 225, 225, 0.3);
-  box-shadow: 0 4px 15px rgba(225, 225, 225, 0.3);
+  background: ${({ theme }) => theme.colors.glass};
+  box-shadow: ${({ theme }) => theme.shadows.glass};
   backdrop-filter: blur(10.1px);
   -webkit-backdrop-filter: blur(10.1px);
-  border-left: 1px solid rgba(225, 225, 225, 1);
+  border-left: 1px solid ${({ theme }) => theme.colors.glassBorder};
   padding: 1rem;
   position: fixed;
   top: 0;
-  right: ${(props) => (props.sideMenuOpened ? "0px" : "-400px")};
+  /* Fully off-screen when closed (the menu is 50% wide, so a fixed -400px
+     left part of it visible on wider phones) */
+  right: ${(props) => (props.$sideMenuOpened ? "0" : "-100%")};
   z-index: 1;
   transition: all 0.5s ease-in-out;
 
@@ -78,7 +82,7 @@ const DisplayWrapper = styled.div`
   }
 `;
 
-const RoutesWrapper = styled.div`
+const RoutesWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,8 +93,8 @@ const RoutesWrapper = styled.div`
 
 const Route = styled(Link)`
   font-size: 16px;
-  color: black;
-  background-color: white;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.white};
   width: 100%;
   height: 30px;
   display: flex;
@@ -98,21 +102,21 @@ const Route = styled(Link)`
   padding: 0 10px;
   border-radius: 8px;
   text-decoration: none;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: ${({ theme }) => theme.shadows.menuItem};
   transition: all 0.5s ease-in-out;
 
   &.active {
-    color: white;
-    background-color: #c9a84c;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.primary};
 
     &:focus {
-      color: white;
-      background-color: #c9a84c;
+      color: ${({ theme }) => theme.colors.white};
+      background-color: ${({ theme }) => theme.colors.primary};
     }
   }
 
   &:focus {
-    color: white;
-    background-color: #111111;
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.dark};
   }
 `;

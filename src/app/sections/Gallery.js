@@ -1,15 +1,14 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
-import { useRouter } from "next/navigation";
-import galleryOne from "../../../public/assets/gallery-one.jpg";
-import galleryTwo from "../../../public/assets/gallery-two.jpg";
-import galleryFour from "../../../public/assets/gallery-four.jpg";
-import galleryFive from "../../../public/assets/gallery-five.jpg";
-import galleryThree from "../../../public/assets/gallery-three.jpg";
+import { featuredGallery } from "@/app/data/gallery";
+
+// Grid area for each featured photo, in the same order as `featuredGallery`
+const gridAreas = ["Column1", "Column21", "Column22", "Column31", "Column32"];
 
 export const Gallery = () => {
-  const router = useRouter();
-
   const sectionData = {
     smallHeading: "Gallery",
     heading: "Take a Look at Our Recent Projects",
@@ -25,39 +24,19 @@ export const Gallery = () => {
         <Description>{sectionData.description}</Description>
       </Header>
       <GalleryWrapper>
-        <div className="Column1">
-          <StyledImage src={galleryOne} alt="Gallery One" data-aos="fade-up" />
-        </div>
-        <div className="Column21">
-          <StyledImage src={galleryTwo} alt="Gallery Two" data-aos="fade-up" />
-        </div>
-        <div className="Column22">
-          <StyledImage
-            src={galleryThree}
-            alt="Gallery Three"
-            data-aos="fade-up"
-          />
-        </div>
-        <div className="Column31">
-          <StyledImage
-            src={galleryFour}
-            alt="Gallery Four"
-            data-aos="fade-up"
-          />
-        </div>
-        <div className="Column32">
-          <StyledImage
-            src={galleryFive}
-            alt="Gallery Five"
-            data-aos="fade-up"
-          />
-        </div>
+        {featuredGallery.map((photo, index) => (
+          <div key={gridAreas[index]} className={gridAreas[index]}>
+            <StyledImage
+              src={photo.image}
+              alt={photo.alt}
+              sizes={index === 0 ? "(max-width: 768px) 60vw, 45vw" : "25vw"}
+              data-aos="fade-up"
+            />
+          </div>
+        ))}
       </GalleryWrapper>
       <ButtonWrapper>
-        <SecondaryButton
-          data-aos="fade-up"
-          onClick={() => router.push("/gallery")}
-        >
+        <SecondaryButton href="/gallery" data-aos="fade-up">
           <span className="transition"></span>
           <span className="label">View More</span>
         </SecondaryButton>
@@ -95,14 +74,14 @@ const Header = styled.div`
 
 const GalleryHeading = styled.p`
   font-size: 20px;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.5s ease-in-out;
 `;
 
 const Heading = styled.h1`
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -116,7 +95,7 @@ const Heading = styled.h1`
 const Description = styled.p`
   font-size: 20px;
   letter-spacing: 1px;
-  color: grey;
+  color: ${({ theme }) => theme.colors.muted};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -218,13 +197,17 @@ const ButtonWrapper = styled.div`
   margin-top: 2rem;
 `;
 
-const SecondaryButton = styled.button`
+const SecondaryButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   width: 200px;
   height: 40px;
   font-size: 20px;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   background-color: transparent;
-  border: 2px solid #111111 !important;
+  border: 2px solid ${({ theme }) => theme.colors.dark} !important;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -233,7 +216,7 @@ const SecondaryButton = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #c9a84c;
+    background-color: ${({ theme }) => theme.colors.primary};
     border-radius: 9999px;
     width: 0;
     height: 0;
@@ -249,7 +232,7 @@ const SecondaryButton = styled.button`
   }
 
   &:hover {
-    border: 2px solid #c9a84c !important;
+    border: 2px solid ${({ theme }) => theme.colors.primary} !important;
   }
 
   &:hover .transition {

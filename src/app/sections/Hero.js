@@ -1,36 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import copy from "clipboard-copy";
 import styled from "styled-components";
-import { useRef, useState } from "react";
-import { Toast } from "../components/Toast";
-import backgroundImage from "../../../public/assets/hero-background-new.jpg";
+import { Toast, useToast } from "@/app/components/Toast";
+import { business, socialLinks } from "@/app/data/site";
+import heroBackground from "#/hero-background.webp";
 
 export const Hero = () => {
-  const timeoutRef = useRef(null);
-  const phoneNumber = "+918097775115";
-  const emailAddress = "mjinteriors2007@gmail.com";
-  const [toast, setToast] = useState({ visible: false, message: "" });
-
-  const showToastMethod = (message) => {
-    setToast({ visible: true, message });
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      setToast({ visible: false, message: "" });
-    }, 3000);
-  };
-
-  const handleOpenDialer = () => {
-    const telUrl = `tel:${phoneNumber}`;
-    window.location.href = telUrl;
-  };
+  const [toast, showToast] = useToast();
 
   const handleCopyEmail = () => {
-    const emailToCopy = `${emailAddress}`;
-    copy(emailToCopy);
-    showToastMethod("Email copied to clipboard");
+    copy(business.email).then(
+      () => showToast("Email copied to clipboard"),
+      () => showToast(`Email: ${business.email}`),
+    );
   };
 
   const sectionData = {
@@ -39,40 +24,17 @@ export const Hero = () => {
       "From Imagination to Blueprint: Where Your Vision Takes Shape. Welcome to MJ Interior, where we bring dreams to life with sophisticated style and meticulous design.",
   };
 
-  const socialLinks = [
-    {
-      className: "bi bi-whatsapp",
-      href: `https://wa.me/${phoneNumber}`,
-      tooltip: "WhatsApp",
-      ariaLabel: "WhatsApp",
-    },
-    {
-      className: "bi bi-instagram",
-      href: "https://www.instagram.com/_mjinteriors",
-      tooltip: "Instagram",
-      ariaLabel: "Instagram",
-    },
-    {
-      className: "bi bi-facebook",
-      href: "https://www.facebook.com/profile.php?id=61556937652865&sfnsn=wiwspwa&mibextid=RUbZ1f",
-      tooltip: "Facebook",
-      ariaLabel: "Facebook",
-    },
-    {
-      className: "bi bi-threads",
-      href: "https://www.threads.net/@_mjinteriors",
-      tooltip: "Threads",
-      ariaLabel: "Threads",
-    },
-  ];
-
   return (
     <DisplayWrapper>
-      <ToastWrapper showToast={toast.visible}>
-        <Toast message={toast.message} color={"white"} />
-      </ToastWrapper>
+      <Toast toast={toast} light />
       <BackgroundImageWrapper>
-        <BackgroundImage src={backgroundImage} alt="Background Image" />
+        <BackgroundImage
+          src={heroBackground}
+          alt=""
+          priority
+          sizes="100vw"
+          placeholder="blur"
+        />
         <Overlay />
       </BackgroundImageWrapper>
       <ContentWrapper>
@@ -80,16 +42,18 @@ export const Hero = () => {
           <Heading>{sectionData.heading}</Heading>
           <Description>{sectionData.description}</Description>
           <ButtonsWrapper>
-            <PrimaryButton onClick={handleOpenDialer}>
+            {/* A real tel: link, so it works without JavaScript and can be
+                long-pressed / copied on mobile */}
+            <PrimaryButton href={`tel:${business.phone}`}>
               <span className="transition"></span>
               <span className="label">
-                <i class="bi bi-telephone-fill"></i> Call Us
+                <i className="bi bi-telephone-fill"></i> Call Us
               </span>
             </PrimaryButton>
-            <SecondaryButton onClick={handleCopyEmail}>
+            <SecondaryButton type="button" onClick={handleCopyEmail}>
               <span className="transition"></span>
               <span className="label">
-                <i class="bi bi-copy"></i> Copy Email
+                <i className="bi bi-copy"></i> Copy Email
               </span>
             </SecondaryButton>
           </ButtonsWrapper>
@@ -100,10 +64,11 @@ export const Hero = () => {
                 className={link.className}
                 href={link.href}
                 target="_blank"
+                rel="noopener noreferrer"
                 data-bs-toggle="tooltip"
-                data-bs-title={link.tooltip}
+                data-bs-title={link.label}
                 data-bs-custom-class="custom-tooltip"
-                aria-label={link.ariaLabel}
+                aria-label={link.label}
               ></SocialLink>
             ))}
           </SocialLinksWrapper>
@@ -121,15 +86,6 @@ const DisplayWrapper = styled.div`
   transition: all 0.5s ease-in-out;
 `;
 
-const ToastWrapper = styled.div`
-  position: fixed;
-  top: ${(props) => (props.showToast ? "10%" : "-20%")};
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  transition: all 0.5s ease-in-out;
-`;
-
 const BackgroundImageWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -143,11 +99,8 @@ const BackgroundImage = styled(Image)`
   width: 100%;
   height: 100vh;
   max-height: 850px;
+  object-fit: cover;
   transition: all 0.5s ease-in-out;
-
-  @media (max-width: 768px) {
-    object-fit: cover;
-  }
 `;
 
 const Overlay = styled.div`
@@ -157,7 +110,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${({ theme }) => theme.colors.overlay};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -193,7 +146,7 @@ const InnerContentWrapper = styled.div`
 
 const Heading = styled.h1`
   font-size: 45px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 550px) {
@@ -218,7 +171,7 @@ const Heading = styled.h1`
 
 const Description = styled.p`
   font-size: 18px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 1024px) {
@@ -239,12 +192,16 @@ const ButtonsWrapper = styled.div`
   transition: all 0.5s ease-in-out;
 `;
 
-const PrimaryButton = styled.button`
+const PrimaryButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   width: 200px;
   height: 40px;
   font-size: 20px;
-  color: white;
-  background-color: #c9a84c;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.primary};
   border-radius: 40px;
   position: relative;
   overflow: hidden;
@@ -253,7 +210,7 @@ const PrimaryButton = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #111111;
+    background-color: ${({ theme }) => theme.colors.dark};
     border-radius: 9999px;
     width: 0;
     height: 0;
@@ -289,9 +246,9 @@ const SecondaryButton = styled.button`
   width: 200px;
   height: 40px;
   font-size: 20px;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   background-color: transparent;
-  border: 2px solid #c9a84c !important;
+  border: 2px solid ${({ theme }) => theme.colors.primary} !important;
   border-radius: 40px;
   position: relative;
   overflow: hidden;
@@ -300,7 +257,7 @@ const SecondaryButton = styled.button`
   .transition {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transition-duration: 500ms;
-    background-color: #111111;
+    background-color: ${({ theme }) => theme.colors.dark};
     border-radius: 9999px;
     width: 0;
     height: 0;
@@ -316,7 +273,7 @@ const SecondaryButton = styled.button`
   }
 
   &:hover {
-    border: 2px solid #c9a84c !important;
+    border: 2px solid ${({ theme }) => theme.colors.primary} !important;
   }
 
   &:hover .transition {
@@ -353,16 +310,16 @@ const SocialLink = styled(Link)`
   text-decoration: none;
   font-size: 20px;
   border-radius: 50%;
-  color: white;
-  background: rgba(225, 225, 225, 0.3);
-  box-shadow: 0 4px 15px rgba(225, 225, 225, 0.3);
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.glass};
+  box-shadow: ${({ theme }) => theme.shadows.glass};
   backdrop-filter: blur(10.1px);
   -webkit-backdrop-filter: blur(10.1px);
-  border: 1px solid rgba(225, 225, 225, 1);
+  border: 1px solid ${({ theme }) => theme.colors.glassBorder};
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    color: #c9a84c;
-    border: 1px solid #c9a84c;
+    color: ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.primary};
   }
 `;

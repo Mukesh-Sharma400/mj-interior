@@ -4,7 +4,8 @@ import { SideMenu } from "./SideMenu";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import logo from "../../../public/assets/logo-new.png";
+import { routes } from "@/app/data/site";
+import logo from "#/logo.webp";
 
 export const Header = () => {
   const pathname = usePathname();
@@ -16,43 +17,53 @@ export const Header = () => {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleSideMenu = () => {
-    setSideMenuOpened(!sideMenuOpened);
+  // Close the side menu after navigating to another page
+  useEffect(() => {
+    setSideMenuOpened(false);
+  }, [pathname]);
+
+  const handleSideMenu = (e) => {
+    // Stop the side menu's outside-click handler from closing it again
+    e.stopPropagation();
+    setSideMenuOpened((opened) => !opened);
   };
 
-  const routesData = [
-    { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
-    { path: "/projects", label: "Projects" },
-    { path: "/gallery", label: "Gallery" },
-    { path: "/aboutus", label: "About Us" },
-    { path: "/contactus", label: "Contact Us" },
-  ];
+  // Links are white over the home page hero until the page is scrolled
+  const lightLinks = !scrolled && pathname === "/";
 
   return (
     <>
-      <DisplayWrapper scrolled={scrolled}>
-        <Logo src={logo} alt="MJ Interior" scrolled={scrolled} />
-        <RoutesWrapper scrolled={scrolled}>
-          {routesData.map((route) => (
+      <DisplayWrapper $scrolled={scrolled}>
+        <Link href="/" aria-label="MJ Interior home">
+          <Logo src={logo} alt="MJ Interior" $scrolled={scrolled} priority />
+        </Link>
+        <RoutesWrapper as="nav" aria-label="Main">
+          {routes.map((route) => (
             <Route
               key={route.path}
-              className={pathname === route.path ? "active" : ""}
+              className={pathname === route.path ? "active" : undefined}
+              aria-current={pathname === route.path ? "page" : undefined}
               href={route.path}
-              scrolled={scrolled}
-              pathname={pathname}
+              $light={lightLinks}
             >
               {route.label}
             </Route>
           ))}
         </RoutesWrapper>
-        <Button onClick={handleSideMenu} sideMenuOpened={sideMenuOpened}>
+        <Button
+          type="button"
+          onClick={handleSideMenu}
+          $sideMenuOpened={sideMenuOpened}
+          aria-label={sideMenuOpened ? "Close menu" : "Open menu"}
+          aria-expanded={sideMenuOpened}
+        >
           <div className="bar bar--1"></div>
           <div className="bar bar--2"></div>
           <div className="bar bar--3"></div>
@@ -72,28 +83,28 @@ const DisplayWrapper = styled.div`
   left: 0;
   right: 0;
   padding: 0px 5%;
-  height: ${(props) => (props.scrolled ? "70px" : "90px")};
+  height: ${(props) => (props.$scrolled ? "70px" : "90px")};
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: ${(props) =>
-    props.scrolled ? "rgba(225, 225, 225, 0.3)" : "transparent"};
-  box-shadow: ${(props) =>
-    props.scrolled ? "0 4px 15px rgba(225, 225, 225, 0.3)" : "none"};
-  backdrop-filter: ${(props) => (props.scrolled ? "blur(10.1px)" : "none")};
+  background: ${({ theme, $scrolled }) =>
+    $scrolled ? theme.colors.glass : "transparent"};
+  box-shadow: ${({ theme, $scrolled }) =>
+    $scrolled ? theme.shadows.glass : "none"};
+  backdrop-filter: ${(props) => (props.$scrolled ? "blur(10.1px)" : "none")};
   -webkit-backdrop-filter: ${(props) =>
-    props.scrolled ? "blur(10.1px)" : "none"};
-  border-bottom: ${(props) =>
-    props.scrolled ? "1px solid rgba(225, 225, 225, 1)" : "none"};
+    props.$scrolled ? "blur(10.1px)" : "none"};
+  border-bottom: ${({ theme, $scrolled }) =>
+    $scrolled ? `1px solid ${theme.colors.glassBorder}` : "none"};
   z-index: 2;
   transition: all 0.5s ease-in-out;
 `;
 
 const Logo = styled(Image)`
   width: auto;
-  height: ${(props) => (props.scrolled ? "40px" : "60px")};
+  height: ${(props) => (props.$scrolled ? "40px" : "60px")};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -111,8 +122,8 @@ const RoutesWrapper = styled.div`
 const Route = styled(Link)`
   position: relative;
   font-size: 16px;
-  color: ${(props) =>
-    props.scrolled || props.pathname !== "/" ? "black" : "white"};
+  color: ${({ theme, $light }) =>
+    $light ? theme.colors.white : theme.colors.text};
   text-decoration: none;
   transition: all 0.5s ease-in-out;
   padding-bottom: 3px;
@@ -125,7 +136,7 @@ const Route = styled(Link)`
   }
 
   &:hover {
-    color: #2b1d16;
+    color: ${({ theme }) => theme.colors.brown};
   }
 
   &::before {
@@ -134,8 +145,7 @@ const Route = styled(Link)`
     bottom: 0;
     left: 0;
     height: 2px;
-    background-color: ${(props) =>
-      props.className === "active" ? "#c9a84c" : "#2b1d16"};
+    background-color: ${({ theme }) => theme.colors.brown};
     width: 0;
     transition:
       width 0.3s ease-in-out,
@@ -147,11 +157,11 @@ const Route = styled(Link)`
   }
 
   &.active {
-    color: #c9a84c;
+    color: ${({ theme }) => theme.colors.primary};
     font-weight: bold;
     &::before {
       width: 100%;
-      background-color: #c9a84c;
+      background-color: ${({ theme }) => theme.colors.primary};
     }
   }
 `;
@@ -186,7 +196,7 @@ const Button = styled.button`
     height: var(--height-bar);
     width: 100%;
     border-radius: 0.5rem;
-    background-color: #c9a84c;
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 
   .bar--1 {
@@ -211,7 +221,7 @@ const Button = styled.button`
   }
 
   ${(props) =>
-    props.sideMenuOpened &&
+    props.$sideMenuOpened &&
     `
     --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
     --pos-y-bar-three: calc(var(--gap) + var(--height-bar));

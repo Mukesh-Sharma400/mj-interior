@@ -1,7 +1,10 @@
+"use client";
+
 import CountUp from "react-countup";
 import styled from "styled-components";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { business, stats } from "@/app/data/site";
 
 export const Counting = () => {
   const currentYear = new Date().getFullYear();
@@ -16,43 +19,46 @@ export const Counting = () => {
     }
   }, [inView]);
 
-  const sectionData = { years: currentYear - 2007, projects: 100, reviews: 30 };
+  const sectionData = {
+    years: currentYear - business.foundedYear,
+    ...stats,
+  };
 
   return (
     <DisplayWrapper ref={ref}>
       <ContentWrapper>
-        <Number data-aos="fade-up">
+        <CountValue data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.years} duration={5} />
           ) : (
             "0"
           )}
           +
-        </Number>
+        </CountValue>
         <Label>Years</Label>
       </ContentWrapper>
-      <Divider />
+      <Divider aria-hidden="true" />
       <ContentWrapper>
-        <Number data-aos="fade-up">
+        <CountValue data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.projects} duration={5} />
           ) : (
             "0"
           )}
           +
-        </Number>
+        </CountValue>
         <Label>Projects</Label>
       </ContentWrapper>
-      <Divider />
+      <Divider aria-hidden="true" />
       <ContentWrapper>
-        <Number data-aos="fade-up">
+        <CountValue data-aos="fade-up">
           {isVisible ? (
             <CountUp start={0} end={sectionData.reviews} duration={5} />
           ) : (
             "0"
           )}
           +
-        </Number>
+        </CountValue>
         <Label>Reviews</Label>
       </ContentWrapper>
     </DisplayWrapper>
@@ -65,14 +71,14 @@ const DisplayWrapper = styled.div`
   align-items: center;
   justify-content: space-evenly;
   padding: 50px 0;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   transition: all 0.5s ease-in-out;
 `;
 
 const Divider = styled.div`
   width: 2px;
   height: 100px;
-  background-color: grey;
+  background-color: ${({ theme }) => theme.colors.muted};
   transition: all 0.5s ease-in-out;
 `;
 
@@ -86,9 +92,9 @@ const ContentWrapper = styled.div`
   transition: all 0.5s ease-in-out;
 `;
 
-const Number = styled.p`
+const CountValue = styled.p`
   font-size: 40px;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 426px) {
@@ -104,7 +110,7 @@ const Number = styled.p`
 
 const Label = styled.p`
   font-size: 20px;
-  color: grey;
+  color: ${({ theme }) => theme.colors.muted};
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 426px) {
